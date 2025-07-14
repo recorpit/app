@@ -151,10 +151,18 @@ async function loadAndProcessTemplate(data) {
 // Genera PDF direttamente con jsPDF
 function generatePDFFromData(data) {
     // Crea nuovo documento PDF
-    const doc = new jsPDF();
+    const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+    });
     
-    // Imposta font
-    doc.setFont("helvetica");
+    // Imposta font con gestione warning
+    try {
+        doc.setFont("helvetica");
+    } catch(e) {
+        // Ignora warning sui font
+    }
     
     // Titolo principale
     doc.setFontSize(20);
