@@ -200,6 +200,9 @@ function generatePDFFromData(data) {
     // Salva PDF
     doc.save(fileName);
     
+    // Salva nel database
+    await savePOSToDatabase(data);
+    
     showMessage('success', `PDF generato con successo: ${fileName}`);
     
     // Reset form dopo 2 secondi
@@ -207,6 +210,16 @@ function generatePDFFromData(data) {
         document.getElementById('posDataForm').reset();
         window.location.href = 'index.html';
     }, 2000);
+}
+
+// Salva POS nel database
+async function savePOSToDatabase(data) {
+    const result = await posDB.create(data);
+    
+    if (!result.success) {
+        console.error('Errore salvataggio database:', result.error);
+        // Non blocchiamo il flusso se il salvataggio fallisce
+    }
 }
 
 // Funzioni helper per PDF
