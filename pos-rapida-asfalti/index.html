@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS - Rapida Asfalti SRL - Revisione 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <!-- TOOLBAR GLOBALE -->
+    <div class="toolbar" id="globalToolbar">
+        <div class="toolbar-left">
+            <h1>📋 POS - RAPIDA ASFALTI SRL</h1>
+            <span class="toolbar-info">Revisione: <span id="revisionDisplay">1</span></span>
+        </div>
+        <div class="toolbar-right">
+            <button class="btn btn-save" onclick="saveAllData()" title="Salva tutto (Ctrl+S)">💾 Salva</button>
+            <button class="btn btn-export" onclick="exportToPDF()" title="Esporta PDF (Ctrl+E)">📄 Esporta PDF</button>
+            <button class="btn btn-print" onclick="printDocument()" title="Anteprima stampa (Ctrl+P)">🖨️ Stampa</button>
+            <button class="btn btn-new" onclick="newDocument()" title="Nuovo documento (Ctrl+N)">📝 Nuovo</button>
+        </div>
+    </div>
+
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container" id="documentContainer">
+
+        <!-- PAGINA 1 - COPERTINA -->
+        <div class="page-container" id="page1">
+            <div class="logo-container">
+                <div class="logo-placeholder">
+                    RAPIDA ASFALTI SRL<br>
+                    [LOGO]
+                </div>
+            </div>
+
+            <div class="title-container">
+                <div class="title-box">
+                    <div class="title-main">PIANO OPERATIVO</div>
+                    <div class="title-sub">di SICUREZZA</div>
+                    <div class="title-pos">(P.O.S.)</div>
+                    <div class="title-legal">
+                        (ai sensi del D.Lgs. 9 aprile 2008, n. 81 e s.m.i.)
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-container">
+                <!-- Box Committente -->
+                <div class="info-box">
+                    <div class="info-title">Committente:</div>
+                    <div class="info-content">
+                        <strong>Intestazione Cliente:</strong><br>
+                        <input type="text" class="campo-editabile" data-field="cliente.intestazione" placeholder="Inserisci nome cliente"><br><br>
+                        
+                        <strong>Indirizzo:</strong><br>
+                        <input type="text" class="campo-editabile" data-field="cliente.indirizzo" placeholder="Inserisci indirizzo"><br><br>
+                        
+                        <strong>CAP - Città:</strong><br>
+                        <input type="text" class="campo-editabile" data-field="cliente.cap_citta" placeholder="CAP Città"><br><br>
+                        
+                        <strong>P.IVA:</strong><br>
+                        <input type="text" class="campo-editabile" data-field="cliente.piva" placeholder="Partita IVA">
+                    </div>
+                </div>
+
+                <!-- Box Impresa -->
+                <div class="info-box">
+                    <div class="info-title">L'Impresa:</div>
+                    <div class="info-content">
+                        <strong>RAPIDA ASFALTI SRL</strong><br>
+                        VIA PADRE LEOPOLDO, 67/D<br>
+                        36016 THIENE (VI)<br>
+                        P.IVA 03996820241<br><br>
+                        
+                        <div class="firma-container">
+                            <div class="firma-placeholder">FIRMA/TIMBRO</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <input type="text" class="campo-editabile-small" data-field="revisione.numero" value="1"> 
+                    - Data revisione <input type="date" class="campo-editabile-small" data-field="revisione.data" value="2025-01-15"> 
+                    - Impresa Rapida Asfalti Srl - Pagina 1 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 2 - INDICE -->
+        <div class="page-container" id="page2">
+            <header class="page-header">
+                <h1 class="page-title">INDICE</h1>
+            </header>
+
+            <div class="content-section">
+                <section class="index-section">
+                    <div class="index-item">
+                        <span>1. DATI GENERALI DEL CANTIERE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">4</span>
+                    </div>
+                    <div class="index-item">
+                        <span>2. DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">4</span>
+                    </div>
+                    <div class="index-item">
+                        <span>3. SPECIFICHE MANSIONI INERENTI LA SICUREZZA</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">5</span>
+                    </div>
+                    <div class="index-item">
+                        <span>4. DESCRIZIONE DELL'ATTIVITÀ</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">6</span>
+                    </div>
+                    <div class="index-item">
+                        <span>5. ANALISI E VALUTAZIONE DEI RISCHI</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">7</span>
+                    </div>
+                    <div class="index-item">
+                        <span>6. SCELTE PROGETTUALI ED ORGANIZZATIVE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">12</span>
+                    </div>
+                    <div class="index-item">
+                        <span>7. PROCEDURE COMPLEMENTARI E DI DETTAGLIO</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">13</span>
+                    </div>
+                    <div class="index-item">
+                        <span>8. USO DI SOSTANZE PERICOLOSE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">14</span>
+                    </div>
+                    <div class="index-item">
+                        <span>9. MISURE DI SICUREZZA CONTRO I POSSIBILI RISCHI ESTERNI</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">15</span>
+                    </div>
+                    <div class="index-item">
+                        <span>10. MODALITÀ ORGANIZZATIVE DELLA COOPERAZIONE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">16</span>
+                    </div>
+                    <div class="index-item">
+                        <span>11. ORGANIZZAZIONE DEL SERVIZIO DI PRONTO SOCCORSO</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">17</span>
+                    </div>
+                    <div class="index-item">
+                        <span>12. SEGNALETICA DI SICUREZZA</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">18</span>
+                    </div>
+                    <div class="index-item">
+                        <span>13. SCHEDE DI SICUREZZA DELLE ATTREZZATURE</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">19</span>
+                    </div>
+                    <div class="index-item">
+                        <span>14. ATTREZZATURE PER ESEGUIRE IL LAVORO</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number">29</span>
+                    </div>
+                </section>
+
+                <section class="index-section">
+                    <div class="index-title">ALLEGATI</div>
+                    <div class="index-item">
+                        <span>Allegato 1 - Schede di sicurezza sostanze chimiche</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number"></span>
+                    </div>
+                    <div class="index-item">
+                        <span>Allegato 2 - Documenti di idoneità tecnico professionale</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number"></span>
+                    </div>
+                    <div class="index-item">
+                        <span>Allegato 3 - Certificazioni attrezzature</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number"></span>
+                    </div>
+                    <div class="index-item">
+                        <span>Allegato 4 - Planimetrie e layout cantiere</span>
+                        <div class="index-dots"></div>
+                        <span class="page-number"></span>
+                    </div>
+                </section>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 2 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 3 - DEFINIZIONI -->
+        <div class="page-container" id="page3">
+            <header class="page-header">
+                <h1 class="page-title">DEFINIZIONI ED ABBREVIAZIONI:</h1>
+            </header>
+
+            <div class="content-section">
+                <div class="definition-item">
+                    <div class="definition-title">Direttore tecnico di cantiere:</div>
+                    <div class="definition-text">
+                        Figura incaricata della gestione del cantiere, compressa la sicurezza. Può essere un Legale 
+                        Rappresentante o un dipendente della ditta appaltatrice o un professionista esterno da questa 
+                        individuato.
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">Capocantiere / Preposto:</div>
+                    <div class="definition-text">
+                        Persona che, in ragione delle competenze professionali e nei limiti di poteri gerarchici 
+                        adeguati alla natura dell'incarico conferitogli, sovrintende all'attività lavorativa e garantisce 
+                        l'attuazione delle direttive ricevute, controllandone la corretta esecuzione da parte dei lavoratori ed 
+                        esercitando un funzionale potere di iniziativa.
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">RSPP:</div>
+                    <div class="definition-text">
+                        Responsabile del servizio di prevenzione e protezione.
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">Lavoratore autonomo:</div>
+                    <div class="definition-text">
+                        Persona fisica la cui attività professionale contribuisce alla realizzazione dell'opera senza vincolo di 
+                        subordinazione;
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title"></div>
+                    <div class="definition-text">
+                        Il piano di sicurezza e di coordinamento di cui all'articolo 100, comma 1 del <strong>D.Lgs. 81/2008 e s.m.i.</strong>
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">PSC:</div>
+                    <div class="definition-text">
+                        Coordinatore per la sicurezza in fase di esecuzione (di seguito: Coordinatore per la sicurezza).
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">CSP:</div>
+                    <div class="definition-text">
+                        Coordinatore per la sicurezza in fase di progettazione.
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">IMPRESA AFFIDATARIA:</div>
+                    <div class="definition-text">
+                        Impresa titolare del contratto di appalto con il committente che, nell'esecuzione dell'opera 
+                        appaltata, può avvalersi di imprese subappaltatrici o di lavoratori autonomi.
+                    </div>
+                </div>
+
+                <div class="definition-item">
+                    <div class="definition-title">IMPRESA ESECUTRICE:</div>
+                    <div class="definition-text">
+                        Impresa che esegue un'opera o parte di essa impegnando proprie risorse umane e materiali.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 3 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 4 - DATI GENERALI -->
+        <div class="page-container" id="page4">
+            <div class="content-section">
+                <!-- SEZIONE 1: DATI GENERALI DEL CANTIERE -->
+                <table class="section-table">
+                    <tr>
+                        <td class="section-header" colspan="2">1&nbsp;&nbsp;&nbsp;DATI GENERALI DEL CANTIERE</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Indirizzo di cantiere</td>
+                        <td class="table-cell value-cell">
+                            <input type="text" class="editable-field" data-field="cantiere.indirizzo" placeholder="Inserisci indirizzo cantiere"><br><br>
+                            <input type="text" class="editable-field" data-field="cantiere.cap_citta" placeholder="CAP - Città">
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Eventuali recapiti</td>
+                        <td class="table-cell value-cell">
+                            <input type="text" class="editable-field" data-field="cantiere.recapiti" placeholder="Telefono, email, ecc.">
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- SEZIONE 2: DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE -->
+                <table class="section-table">
+                    <tr>
+                        <td class="section-header" colspan="2">2&nbsp;&nbsp;&nbsp;DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE</td>
+                    </tr>
+                    <tr>
+                        <td class="section-header" colspan="2">IMPRESA ESECUTRICE</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Denominazione</td>
+                        <td class="table-cell value-cell fixed-content">RAPIDA ASFALTI SRL</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Indirizzo</td>
+                        <td class="table-cell value-cell fixed-content">Via Padre Leopoldo 67/d<br>36016 Thiene (VI)</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Tel</td>
+                        <td class="table-cell value-cell fixed-content">0445 386059</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Datore di Lavoro</td>
+                        <td class="table-cell value-cell fixed-content">Gallato Silvio</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Attività dell'impresa esecutrice</td>
+                        <td class="table-cell value-cell fixed-content">
+                            Impermeabilizzazioni, colibentazioni, manti in pvc, latterone, rifacimento tetti industriali e civili, asfaltature, demolizioni e piccoli lavori di attrezzaria (permissivista).
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Incarico ricevuto da:</td>
+                        <td class="table-cell value-cell">
+                            <input type="text" class="editable-field client-sync" data-field="cliente.intestazione" placeholder="Nome cliente"><br><br>
+                            <input type="text" class="editable-field client-sync" data-field="cliente.indirizzo" placeholder="Indirizzo cliente"><br><br>
+                            <input type="text" class="editable-field client-sync" data-field="cliente.cap_citta" placeholder="CAP Città"><br><br>
+                            <input type="text" class="editable-field client-sync" data-field="cliente.piva" placeholder="P.IVA">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 4 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 5 - ELENCO LAVORATORI -->
+        <div class="page-container" id="page5">
+            <div class="content-section">
+                <!-- ELENCO LAVORATORI DINAMICO -->
+                <table class="section-table" id="workersTable">
+                    <tr>
+                        <td class="section-header" colspan="3">
+                            Elenco dei lavoratori dell'impresa esecutrice<br>
+                            presenti in cantiere:
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell" style="background-color: #f0f0f0; font-weight: bold; width: 45%;">
+                            Numero (ed eventuale nominativo) lavoratori<br>
+                            dell'impresa presenti in cantiere<br>
+                            <em>(Ditte e Persone)</em>
+                        </td>
+                        <td class="table-cell" style="background-color: #f0f0f0; font-weight: bold; width: 45%;">
+                            QUALIFICA e MANSIONE
+                        </td>
+                        <td class="table-cell" style="background-color: #f0f0f0; font-weight: bold; width: 10%;">
+                            AZIONI
+                        </td>
+                    </tr>
+                    <tbody id="workersBody">
+                        <!-- Righe lavoratori generate dinamicamente -->
+                    </tbody>
+                    <tr>
+                        <td class="table-cell total-cell" colspan="3">
+                            TOTALE N. <span id="totalWorkers">0</span>
+                            <button type="button" onclick="addWorker()" class="add-btn">➕ Aggiungi Lavoratore</button>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- SPECIFICHE MANSIONI - SEZIONE FISSA -->
+                <table class="section-table responsibilities-table">
+                    <tr>
+                        <td class="section-header" colspan="2">3&nbsp;&nbsp;&nbsp;SPECIFICHE MANSIONI INERENTI LA SICUREZZA</td>
+                    </tr>
+                    <tr>
+                        <td class="section-header" colspan="2">SOGGETTI DELL'IMPRESA ESECUTRICE RESPONSABILI PER LA SICUREZZA DEL PRESENTE CANTIERE</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo del Responsabile del Servizio di Prevenzione e Protezione (RSPP)</strong>
+                        </td>
+                        <td class="table-cell person-cell">Gallato Silvio</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo Addetto/i Primo Soccorso</strong>
+                        </td>
+                        <td class="table-cell person-cell">Tatomir Josic, Stanic Bojan, Gallato Silvio</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo Addetto/i Prevenzione Incendi ed Evacuazione</strong>
+                        </td>
+                        <td class="table-cell person-cell">Tatomir Josic, Stanic Bojan, Gallato Silvio</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo del Rappresentante dei Lavoratori per la Sicurezza</strong><br>
+                            <input type="checkbox" class="checkbox" checked> aziendale (RLS)<br>
+                            <input type="checkbox" class="checkbox"> territoriale (RLS)<br>
+                            <input type="checkbox" class="checkbox"> di sito produttivo
+                        </td>
+                        <td class="table-cell person-cell">Gallato Alice</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo del Medico Competente</strong><br>
+                            <input type="checkbox" class="checkbox"> non obbligatorio
+                        </td>
+                        <td class="table-cell person-cell">Giovanni Scordo</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo Direttore Tecnico di cantiere</strong>
+                        </td>
+                        <td class="table-cell person-cell">Gallato Silvio</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell role-cell">
+                            <strong>Nominativo capocantiere/preposto</strong>
+                        </td>
+                        <td class="table-cell person-cell">Stanic Bojan, Tatomir Josic</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 5 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 6 - ORGANIGRAMMA -->
+        <div class="page-container" id="page6">
+            <div class="content-section">
+                <h1 class="page-title">Organizzazione dell'Azienda RAPIDA ASFALTI SRL</h1>
+                
+                <svg class="organigramma-svg" viewBox="0 0 600 450">
+                    <!-- Linee di connessione -->
+                    <line class="connection-line" x1="300" y1="50" x2="150" y2="50"/>
+                    <line class="connection-line" x1="300" y1="50" x2="450" y2="50"/>
+                    <line class="connection-line" x1="150" y1="50" x2="100" y2="50"/>
+                    <line class="connection-line" x1="450" y1="50" x2="450" y2="130"/>
+                    <line class="connection-line" x1="450" y1="130" x2="480" y2="130"/>
+                    <line class="connection-line" x1="450" y1="130" x2="450" y2="200"/>
+                    <line class="connection-line" x1="450" y1="200" x2="480" y2="200"/>
+                    <line class="connection-line" x1="450" y1="50" x2="480" y2="50"/>
+                    <line class="connection-line" x1="300" y1="60" x2="300" y2="250"/>
+                    <line class="connection-line" x1="300" y1="250" x2="160" y2="250"/>
+                    <line class="connection-line" x1="300" y1="60" x2="300" y2="320"/>
+                    <line class="connection-line" x1="300" y1="320" x2="450" y2="320"/>
+                    <line class="connection-line" x1="450" y1="320" x2="450" y2="370"/>
+                    <line class="connection-line" x1="160" y1="270" x2="160" y2="340"/>
+                    <line class="connection-line" x1="160" y1="340" x2="120" y2="340"/>
+                    <line class="connection-line" x1="160" y1="340" x2="250" y2="340"/>
+                    <line class="connection-line" x1="120" y1="340" x2="120" y2="370"/>
+                    <line class="connection-line" x1="250" y1="340" x2="250" y2="370"/>
+
+                    <!-- Box dell'organigramma -->
+                    <rect class="org-box" x="240" y="20" width="120" height="40"/>
+                    <text class="org-text org-title" x="300" y="35">Datore di Lavoro</text>
+                    <text class="org-text org-name" x="300" y="50">GALLATO SILVIO</text>
+
+                    <rect class="org-box" x="50" y="20" width="100" height="50"/>
+                    <text class="org-text org-title" x="100" y="35">Medico Competente</text>
+                    <text class="org-text org-name" x="100" y="48">Dott. GIOVANNI</text>
+                    <text class="org-text org-name" x="100" y="60">SCORDO</text>
+
+                    <rect class="org-box" x="480" y="20" width="120" height="60"/>
+                    <text class="org-text org-title" x="540" y="35">Responsabile del</text>
+                    <text class="org-text org-title" x="540" y="47">Servizio Prevenzione</text>
+                    <text class="org-text org-title" x="540" y="59">e Protezione</text>
+                    <text class="org-text org-name" x="540" y="75">GALLATO SILVIO</text>
+
+                    <rect class="org-box" x="480" y="110" width="80" height="40"/>
+                    <text class="org-text org-title" x="520" y="125">RLS</text>
+                    <text class="org-text org-name" x="520" y="140">GALLATO ALICE</text>
+
+                    <rect class="org-box" x="380" y="180" width="200" height="160"/>
+                    <text class="org-text org-title" x="480" y="195">Dipendenti</text>
+                    
+                    <foreignObject x="390" y="205" width="180" height="130">
+                        <div xmlns="http://www.w3.org/1999/xhtml" class="dipendenti-container">
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_1" value="BOJAN STANIC"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_2" value="ZORAN STANIC"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_3" value="TOURAS JOSIC"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_4" value="JOSIC PETAR"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_5" value="MARHABAN ABDERRAHIM"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_6" value="MARHABAN FAHD"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_7" value="BADJIE BUBA"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_8" value="TOURAS PA BOY"/>
+                            <input type="text" class="dipendente-field" data-field="organigramma.dipendente_9" value="CAMARA MORRAY"/>
+                        </div>
+                    </foreignObject>
+
+                    <rect class="org-box" x="100" y="230" width="120" height="40"/>
+                    <text class="org-text org-title" x="160" y="250">SQUADRA EMERGENZA</text>
+
+                    <rect class="org-box" x="60" y="370" width="120" height="60"/>
+                    <text class="org-text org-title" x="120" y="385">Addetti Antincendio</text>
+                    <text class="org-text org-name" x="120" y="400">GALLATO SILVIO</text>
+                    <text class="org-text org-name" x="120" y="412">STANIC BOJAN</text>
+                    <text class="org-text org-name" x="120" y="424">JOSIC TATOMIR</text>
+
+                    <rect class="org-box" x="190" y="370" width="120" height="60"/>
+                    <text class="org-text org-title" x="250" y="385">Addetti Primo Soccorso</text>
+                    <text class="org-text org-name" x="250" y="400">GALLATO SILVIO</text>
+                    <text class="org-text org-name" x="250" y="412">STANIC BOJAN</text>
+                    <text class="org-text org-name" x="250" y="424">JOSIC TATOMIR</text>
+
+                    <rect class="org-box" x="390" y="370" width="120" height="60"/>
+                    <text class="org-text org-title" x="450" y="385">Supervisore</text>
+                    <text class="org-text org-title" x="450" y="397">autorizzato lavori</text>
+                    <text class="org-text org-name" x="450" y="415">GALLATO PERLULIGI</text>
+                </svg>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 6 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 7 - DESCRIZIONE ATTIVITÀ CANTIERE -->
+        <div class="page-container" id="page7">
+            <div class="content-section">
+                <!-- SEZIONE 4: DESCRIZIONE DELL'ATTIVITÀ DI CANTIERE -->
+                <table class="section-table">
+                    <tr>
+                        <td class="section-header" colspan="2">4&nbsp;&nbsp;&nbsp;DESCRIZIONE DELL'ATTIVITÀ DI CANTIERE</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Data prevista inizio lavorazioni</td>
+                        <td class="table-cell value-cell">
+                            <input type="date" class="editable-field" data-field="cantiere.data_inizio_lavori" placeholder="Data inizio">
+                        </td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="table-cell label-cell">Durata presunta delle lavorazioni</td>
+                        <td class="table-cell value-cell">
+                            <input type="number" class="editable-field" data-field="cantiere.durata_lavori" placeholder="Giorni"> gg
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="note-text">
+                    Si riporta di seguito l'elenco delle lavorazioni che vengono eseguite nel cantiere direttamente 
+                    dall'impresa esecutrice
+                </div>
+
+                <!-- TABELLA LAVORAZIONI DINAMICA -->
+                <table class="lavorazioni-table">
+                    <tr>
+                        <td class="lavorazioni-header" style="width: 50%;">
+                            <strong>Lavorazioni*</strong><br>
+                            <em>(* elenco presunta di esecuzione)</em>
+                        </td>
+                        <td class="lavorazioni-header" style="width: 25%;">
+                            <strong>Durata della<br>lavorazione<br>GG</strong>
+                        </td>
+                        <td class="lavorazioni-header" style="width: 25%;">
+                            <strong>Eventuali turni di<br>lavoro</strong>
+                        </td>
+                    </tr>
+                    <tbody id="lavorazioni-body">
+                        <!-- Righe generate dinamicamente -->
+                    </tbody>
+                    <tr>
+                        <td class="lavorazioni-cell">
+                            <button type="button" onclick="addLavorazione()" class="add-btn">➕ Aggiungi Lavorazione</button>
+                        </td>
+                        <td class="lavorazioni-cell"></td>
+                        <td class="lavorazioni-cell"></td>
+                    </tr>
+                </table>
+
+                <div class="note-text">
+                    Si riporta di seguito l'elenco delle lavorazioni che vengono eseguite nel cantiere da eventuali 
+                    lavoratori autonomi subaffidati operanti per conto dell'impresa esecutrice
+                </div>
+
+                <div class="note-text">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" id="subaffidatari-flag" checked data-field="cantiere.subaffidatari_non_compilato"> 
+                        <span>non compilato in quanto non vi sono lavorazioni affidate a lavoratori autonomi <strong>subaffidatari</strong></span>
+                    </label>
+                </div>
+
+                <!-- TABELLA SUBAPPALTI -->
+                <div id="subappalti-container" class="disabled-table">
+                    <table class="subappalti-table" id="subappalti-table">
+                        <tr>
+                            <td class="lavorazioni-header" style="width: 30%;">
+                                <strong>Numero (ed eventuale nominativo)<br>lavoratori autonomi presenti in<br>cantiere per conto dell'impresa</strong><br>
+                                <em>(Ditte nel totale, in ordine presunta di<br>esecuzione)</em>
+                            </td>
+                            <td class="lavorazioni-header" style="width: 45%;">
+                                <strong>ATTIVITÀ SVOLTA</strong>
+                            </td>
+                            <td class="lavorazioni-header" style="width: 25%;">
+                                <strong>Durata della<br>lavorazione</strong>
+                            </td>
+                        </tr>
+                        <tbody id="subappalti-body">
+                            <!-- Righe generate dinamicamente -->
+                        </tbody>
+                        <tr>
+                            <td class="lavorazioni-cell">
+                                <strong>TOTALE N. <span id="totale-subappalti">0</span></strong>
+                            </td>
+                            <td class="lavorazioni-cell">
+                                <button type="button" onclick="addSubappalto()" id="add-subappalto-btn" class="add-btn" disabled>➕ Aggiungi</button>
+                            </td>
+                            <td class="lavorazioni-cell"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 7 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 8 - MODALITÀ ORGANIZZATIVE -->
+        <div class="page-container" id="page8">
+            <div class="content-section">
+                <!-- SEZIONE 5: DESCRIZIONE DELLE MODALITÀ ORGANIZZATIVE -->
+                <table class="section-table">
+                    <tr>
+                        <td class="section-header" colspan="3">5&nbsp;&nbsp;&nbsp;DESCRIZIONE DELLE MODALITÀ ORGANIZZATIVE</td>
+                    </tr>
+                </table>
+
+                <!-- TABELLA MODALITÀ ORGANIZZATIVE -->
+                <table class="modalita-table">
+                    <tr>
+                        <td class="modalita-header aspetto-cell">
+                            <strong>Aspetto</strong>
+                        </td>
+                        <td class="modalita-header descrizione-cell">
+                            <strong>Descrizione / identificazione caratteri significativi</strong>
+                        </td>
+                        <td class="modalita-header checkbox-cell">
+                            <strong>Vedasi eventuale<br>documentazione<br>allegata</strong>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="modalita-cell aspetto-cell">
+                            <strong>Recinzione area di cantiere</strong>
+                        </td>
+                        <td class="modalita-cell descrizione-cell">
+                            Verrà allestita una recinzione perimetrale alla Gru e trabatello
+                        </td>
+                        <td class="modalita-cell checkbox-cell">
+                            <input type="checkbox" class="checkbox-input" data-field="modalita.recinzione_allegata">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="modalita-cell aspetto-cell">
+                            <strong>Viabilità ed accessi di cantiere</strong>
+                        </td>
+                        <td class="modalita-cell descrizione-cell">
+                            L'accesso avverrà dal cancello principale della committenza
+                        </td>
+                        <td class="modalita-cell checkbox-cell">
+                            <input type="checkbox" class="checkbox-input" data-field="modalita.viabilita_allegata">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="modalita-cell aspetto-cell">
+                            <strong>Aree di deposito materiali</strong>
+                        </td>
+                        <td class="modalita-cell descrizione-cell">
+                            I materiali verranno portati in quota quando necessario
+                        </td>
+                        <td class="modalita-cell checkbox-cell">
+                            <input type="checkbox" class="checkbox-input" data-field="modalita.deposito_allegata">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="modalita-cell aspetto-cell">
+                            <strong>Aree di deposito attrezzature</strong>
+                        </td>
+                        <td class="modalita-cell descrizione-cell">
+                            Le attrezzature verranno depositate presso il camioncino
+                        </td>
+                        <td class="modalita-cell checkbox-cell">
+                            <input type="checkbox" class="checkbox-input" data-field="modalita.attrezzature_allegata">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="modalita-cell aspetto-cell">
+                            <strong>Altro (specificare)</strong>
+                        </td>
+                        <td class="modalita-cell descrizione-cell">
+                            <label style="display: flex; align-items: center; cursor: pointer; font-size: 9px;">
+                                <input type="checkbox" id="altro-flag" style="margin-right: 8px;" data-field="modalita.altro_abilitato"> 
+                                <span>Abilita campo "Altro"</span>
+                            </label>
+                            <textarea class="editable-field" placeholder="Inserisci altre modalità organizzative..." 
+                                      data-field="modalita.altro_modalita" id="altro-textarea" disabled style="margin-top: 5px; opacity: 0.5;"></textarea>
+                        </td>
+                        <td class="modalita-cell checkbox-cell">
+                            <input type="checkbox" class="checkbox-input" id="altro-checkbox" data-field="modalita.altro_allegata" disabled>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 8 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 9 - SERVIZI IGIENICO ASSISTENZIALI -->
+        <div class="page-container" id="page9">
+            <div class="content-section">
+                <div class="intro-text">
+                    Si riporta di seguito un quadro riepilogativo sintetico dei principali servizi igienico assistenziali previsti 
+                    e/o presenti per lo specifico cantiere.
+                </div>
+
+                <!-- TABELLA SERVIZI IGIENICO ASSISTENZIALI -->
+                <table class="servizi-table">
+                    <tr>
+                        <td class="servizi-header descrizione-cell">
+                            <strong>Descrizione</strong>
+                        </td>
+                        <td class="servizi-header specificare-cell">
+                            <strong>Specificare l'opzione pertinente</strong>
+                        </td>
+                        <td class="servizi-header note-cell">
+                            <strong>Eventuali note esplicative</strong>
+                        </td>
+                    </tr>
+                    
+                    <!-- Cassetta di Pronto Soccorso -->
+                    <tr>
+                        <td class="servizi-cell descrizione-cell">
+                            <strong>Cassetta di Pronto Soccorso</strong>
+                        </td>
+                        <td class="servizi-cell specificare-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.cassetta_messo_disposizione">
+                                Messo a disposizione presso camioncino
+                            </label>
+                        </td>
+                        <td class="servizi-cell note-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.cassetta_non_pertinente">
+                                non pertinente
+                            </label>
+                        </td>
+                    </tr>
+
+                    <!-- WC -->
+                    <tr>
+                        <td class="servizi-cell descrizione-cell">
+                            <strong>WC</strong>
+                        </td>
+                        <td class="servizi-cell specificare-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" data-field="servizi.wc_manutenzione_elettrica">
+                                Da installare e manutenzione elettrica
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.wc_messo_disposizione">
+                                Messo a disposizione dalla Committenza
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" data-field="servizi.wc_organizzato">
+                                Organizzato in accordo con
+                            </label>
+                        </td>
+                        <td class="servizi-cell note-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.wc_non_pertinente">
+                                non pertinente
+                            </label>
+                        </td>
+                    </tr>
+
+                    <!-- Lavabi -->
+                    <tr>
+                        <td class="servizi-cell descrizione-cell">
+                            <strong>Lavabi</strong>
+                        </td>
+                        <td class="servizi-cell specificare-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" data-field="servizi.lavabi_installare_elettrica">
+                                Da installare a cura dell'impresa esecutrice
+                            </label>
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.lavabi_messo_disposizione">
+                                Messo a disposizione dalla Committenza
+                            </label>
+                        </td>
+                        <td class="servizi-cell note-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.lavabi_non_pertinente">
+                                non pertinente
+                            </label>
+                        </td>
+                    </tr>
+
+                    <!-- Docce -->
+                    <tr>
+                        <td class="servizi-cell descrizione-cell">
+                            <strong>Docce</strong>
+                        </td>
+                        <td class="servizi-cell specificare-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.docce_messo_disposizione">
+                                Messo a disposizione da
+                            </label>
+                        </td>
+                        <td class="servizi-cell note-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.docce_non_pertinente">
+                                non pertinente
+                            </label>
+                        </td>
+                    </tr>
+
+                    <!-- Spogliatoi -->
+                    <tr>
+                        <td class="servizi-cell descrizione-cell">
+                            <strong>Spogliatoi</strong>
+                        </td>
+                        <td class="servizi-cell specificare-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.spogliatoi_messo_disposizione">
+                                Messo a disposizione da
+                            </label>
+                        </td>
+                        <td class="servizi-cell note-cell">
+                            <label class="checkbox-option">
+                                <input type="checkbox" class="checkbox-input" checked data-field="servizi.spogliatoi_non_pertinente">
+                                non pertinente
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 9 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 10 - ELENCO PONTEGGI E ATTREZZATURE -->
+        <div class="page-container" id="page10">
+            <div class="content-section">
+                <div class="page-header">
+                    8. ELENCO DEI PONTEGGI, DELLE MACCHINE, ATTREZZATURE ED IMPIANTI
+                </div>
+
+                <div class="intro-text">
+                    Si riporta di seguito un <u>elenco riepilogativo delle principali macchine, attrezzature, opere provvisionali ed impianti</u> dell'impresa esecutrice (di proprietà e/o noleggio o comunque nella disponibilità dell'impresa esecutrice) previste per le lavorazioni e/o utilizzate nello specifico cantiere.
+                </div>
+
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 40%;">Macchine, attrezzature ed impianti</th>
+                            <th class="presente-col">Presente in cantiere</th>
+                            <th class="ubicazione-col">Libretti di istruzioni</th>
+                            <th class="collaudo-col">Collaudo</th>
+                            <th class="verifiche-col">Verifiche periodiche</th>
+                            <th class="uso-col">Uso comune</th>
+                            <th class="altro-col">Altre indicazioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="attrezzature-table">
+                        <!-- Le righe verranno generate dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 10 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 11 - SOSTANZE PERICOLOSE -->
+        <div class="page-container" id="page11">
+            <div class="content-section">
+                <div class="page-header">
+                    7. ELENCO DELLE SOSTANZE E PREPARATI PERICOLOSI
+                </div>
+
+                <div class="intro-text">
+                    Si riporta l'elenco delle sostanze e preparati pericolosi utilizzati nel cantiere:
+                </div>
+
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th class="col-sostanza">Sostanza pericolosa chimica (denominazione commerciale)</th>
+                            <th class="col-tipologia">Tipologia</th>
+                            <th class="col-fase">Fase lavorativa di utilizzo</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sostanze-table">
+                        <tr>
+                            <td class="non-presenti-row col-sostanza">NON PRESENTI</td>
+                            <td class="col-tipologia"></td>
+                            <td class="col-fase"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="add-remove-buttons">
+                    <button class="add-button" onclick="addSostanzaRow()">➕ Aggiungi Sostanza</button>
+                </div>
+
+                <div class="note-section">
+                    Prendendo in considerazione i prodotti chimici utilizzati e le modalità di lavoro effettuate si stima che 
+                    <strong><u>DIFFICILMENTE</u></strong> possano verificarsi rischi <strong><u>BASSO PER LA SICUREZZA E IRRILEVANTE PER LA SALUTE</u></strong> 
+                    <strong><u>DELLA POPOLAZIONE</u></strong>.
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 11 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 12 - ELENCO DPI -->
+        <div class="page-container" id="page12">
+            <div class="content-section">
+                <div class="page-header">
+                    ELENCO DEI DISPOSITIVI DI PROTEZIONE INDIVIDUALE
+                </div>
+
+                <div class="intro-text">
+                    Si riporta la lista dei DPI (Dispositivi di Protezione Individuale) forniti ai lavoratori occupati in cantiere:
+                </div>
+
+                <table class="main-table">
+                    <thead>
+                        <tr>
+                            <th class="header-qualifica">Qualifica e mansione</th>
+                            <th>Casco / elmetto protettivo</th>
+                            <th>Scarpe antinfortunistiche</th>
+                            <th>Guanti protettivi</th>
+                            <th>Occhiali / maschere</th>
+                            <th>Otoprotettori</th>
+                            <th>Facciali / Maschere</th>
+                            <th>DPI 3ª categoria</th>
+                            <th>Indumenti protettivi</th>
+                            <th>Alta visibilità</th>
+                            <th>Visiera saldatura</th>
+                            <th>Rischi specifici</th>
+                            <th class="header-fase">Fase lavorativa</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dpi-table">
+                        <!-- Righe generate dinamicamente -->
+                    </tbody>
+                </table>
+
+                <div class="note-section">
+                    <div>(1) Otoprotettori: cuffie antirumore, archi antirumore, tappi auricolari</div>
+                    <div>(2) DPI 3ª categoria: imbracature di sicurezza, connettori, linee vita, sistemi anticaduta</div>
+                    <div>(3) DPI per rischi specifici: tute impermeabili ad agenti chimici, dispositivi di protezione respiratoria</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 12 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 13 - RAPPORTI RUMORE E VIBRAZIONI -->
+        <div class="page-container" id="page13">
+            <div class="content-section">
+                <div class="page-header">
+                    8. ESITI DEI RAPPORTI DI VALUTAZIONE DEL RUMORE E DELLE VIBRAZIONI
+                </div>
+
+                <div class="section-title">RISCHIO RUMORE</div>
+
+                <div class="intro-text">
+                    L'esito del rapporto di valutazione di esposizione dei lavoratori al rumore, relativamente alle <u>lavorazioni svolte nello specifico cantiere</u>, è il seguente:
+                </div>
+
+                <table class="checkbox-table">
+                    <tr>
+                        <td class="checkbox-cell">
+                            <input type="checkbox" data-field="rumore.misurazione" checked>
+                        </td>
+                        <td class="description-cell">
+                            <strong>Misurazione del rumore eseguita mediante fonometro</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="checkbox-cell">
+                            <input type="checkbox" data-field="rumore.autocertificazione">
+                        </td>
+                        <td class="description-cell">
+                            <strong>Autocertificazione (per il rischio rumore inferiore a 80 dB(A))</strong>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="data-section">
+                    L'Azienda in data <input type="date" class="editable-field" data-field="rumore.data_valutazione" value="2016-05-18"> 
+                    (aggiornato <input type="date" class="editable-field" data-field="rumore.data_aggiornamento" value="2020-03-17">) 
+                    ha redatto la specifica valutazione del rischio rumore con i seguenti risultati:
+                </div>
+
+                <div class="section-title">RISCHIO VIBRAZIONI</div>
+
+                <table class="data-table">
+                    <tr>
+                        <th style="width: 15%;">Livello</th>
+                        <th style="width: 85%;">Descrizione Sistema Mano-Braccio (HAV)</th>
+                    </tr>
+                    <tr class="level-alto">
+                        <td><strong>ALTO</strong></td>
+                        <td>per nessun addetto</td>
+                    </tr>
+                    <tr class="level-medio">
+                        <td><strong>MEDIO</strong></td>
+                        <td><strong>per n. 06 addetti (di cui n. 01 Datore di lavoro)</strong></td>
+                    </tr>
+                    <tr class="level-basso">
+                        <td><strong>BASSO</strong></td>
+                        <td>per nessun addetto</td>
+                    </tr>
+                    <tr class="level-irrilevante">
+                        <td><strong>IRRILEVANTE</strong></td>
+                        <td>per nessun addetto</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 13 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 14 - MACROCLIMA -->
+        <div class="page-container" id="page14">
+            <div class="content-section">
+                <div class="page-header">
+                    9. MACROCLIMA
+                </div>
+
+                <div class="intro-text">
+                    Condizioni climatiche che possono incidere in maniera significativa sul livello di rischio delle lavorazioni effettuate all'esterno.
+                </div>
+
+                <div class="period-section">
+                    <div class="period-title">PERIODO ESTIVO</div>
+                    <div class="intro-text">
+                        Saranno valutate le previsioni e le condizioni del tempo per impostare le misure di prevenzione; i lavoratori dovranno essere informati e sensibilizzati sui rischi di prevenzione per evitare il colpo di calore.
+                    </div>
+
+                    <table class="checkbox-table">
+                        <tr>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" data-field="macroclima.pausa_ombra" checked>
+                            </td>
+                            <td class="description-cell">
+                                Sono previste pause durante il turno lavorativo in un luogo fresco, con durata variabile in rapporto alle condizioni meteorologiche.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" data-field="macroclima.acqua_sali" checked>
+                            </td>
+                            <td class="description-cell">
+                                Sul posto di lavoro è prevista la distribuzione dell'acqua potabile e sali in quantità adeguata.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="checkbox-cell">
+                                <input type="checkbox" data-field="macroclima.cappello" checked>
+                            </td>
+                            <td class="description-cell">
+                                I lavoratori indossano, se necessario, un adeguato cappuccio per proteggere dal sole.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="period-section">
+                    <div class="period-title">PERIODO INVERNALE / EVENTI ATMOSFERICI ECCEZIONALI</div>
+                    <div class="intro-text">
+                        Ai lavoratori verrà fornito idoneo vestiario/equipaggiamento ai DPI. In caso di fenomeni meteorologici eccezionali sarà cura dell'Impresa verificare il grado di sicurezza, provvedendo ove necessario alla sospensione delle lavorazioni.
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 14 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINA 15 - PROCEDURE COMPLEMENTARI -->
+        <div class="page-container" id="page15">
+            <div class="content-section">
+                <div class="page-header">
+                    10. PROCEDURE COMPLEMENTARI E DI DETTAGLIO RICHIESTE DAL PSC<br>
+                    (QUANDO ESISTONO)
+                </div>
+
+                <div class="intro-text">
+                    Si riporta di seguito un quadro riepilogativo sintetico dei rischi/aspetti critici maggiormente significativi presenti nell'ambito della specifica cantiere.
+                </div>
+
+                <div class="checkbox-section">
+                    <div class="checkbox-item">
+                        <input type="checkbox" data-field="psc.esiste_con_procedure">
+                        <div class="checkbox-text">
+                            <strong>esiste PSC di riferimento e sono richieste procedure complementari e di dettaglio;</strong>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" data-field="psc.esiste_senza_procedure">
+                        <div class="checkbox-text">
+                            <strong>esiste PSC di riferimento ma non sono richieste procedure complementari e di dettaglio;</strong>
+                        </div>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <input type="checkbox" data-field="psc.non_esiste" checked>
+                        <div class="checkbox-text">
+                            <strong>non esiste PSC di riferimento</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <table class="procedure-table">
+                    <thead>
+                        <tr>
+                            <th>TITOLO PROCEDURA:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SCOPO E CAMPO DI APPLICAZIONE:</td>
+                        </tr>
+                        <tr>
+                            <td>DESCRIZIONE DEL LAVORO:</td>
+                        </tr>
+                        <tr>
+                            <td>MEZZI UTILIZZATI:</td>
+                        </tr>
+                        <tr>
+                            <td>RISCHI POSSIBILI:</td>
+                        </tr>
+                        <tr>
+                            <td>MISURE DI SICUREZZA:</td>
+                        </tr>
+                        <tr>
+                            <td>OSSERVAZIONI E RESPONSABILITÀ PER IL CONTROLLO:</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 15 di 29
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGINE 16-18 - FORMAZIONE E VALUTAZIONE RISCHI -->
+        <div class="page-container" id="page16">
+            <div class="content-section">
+                <div class="page-header">
+                    11. FORMAZIONE DIPENDENTI
+                </div>
+
+                <div class="section-title">CORSO FORMAZIONE / INFORMAZIONE DIPENDENTI (RISCHIO ALTO)</div>
+                
+                <div class="course-section">
+                    <div class="course-title">Corsi previsti dall'accordo Stato Regioni del 21.12.2011</div>
+                    <div class="course-info">
+                        Gli addetti sono stati sottoposti ai corsi di formazione (modulo generale 4 ore) in data 
+                        <input type="date" class="editable-field" data-field="formazione.modulo_generale" value="2016-01-09"> 
+                        e (modulo aggiuntivo di 12 ore) nella data 
+                        <input type="date" class="editable-field" data-field="formazione.modulo_aggiuntivo_inizio" value="2016-01-16">-
+                        <input type="date" class="editable-field" data-field="formazione.modulo_aggiuntivo_fine" value="2016-01-30">.
+                    </div>
+                    <div class="course-info">
+                        Aggiornamento formazione sicurezza in data 
+                        <input type="date" class="editable-field" data-field="formazione.aggiornamento_sicurezza" value="2020-04-06">
+                    </div>
+                </div>
+
+                <div class="section-title">CORSO PREPOSTI</div>
+                <div class="course-section">
+                    <div class="course-info">
+                        I sig.ri <input type="text" class="editable-field" data-field="formazione.preposto_1" value="STANIC BOJAN"> 
+                        e <input type="text" class="editable-field" data-field="formazione.preposto_2" value="TATOMIR JOSIC"> 
+                        hanno partecipato al corso di formazione di 8 ore in data 
+                        <input type="date" class="editable-field" data-field="formazione.corso_preposti_inizio" value="2015-02-05"> - 
+                        <input type="date" class="editable-field" data-field="formazione.corso_preposti_fine" value="2015-02-11">; 
+                        aggiornato il <input type="date" class="editable-field" data-field="formazione.aggiornamento_preposti" value="2021-05-26">
+                    </div>
+                </div>
+
+                <div class="section-title">CORSO INTERVENTO PRATICO AL PRIMO SOCCORSO</div>
+                <div class="course-section">
+                    <div class="course-info">gruppo B - 12 ore - aggiornamento 4 ore</div>
+                    <div class="course-info">Sono individuati per tali compiti i Sigg.: 
+                        <input type="text" class="editable-field" data-field="formazione.primo_soccorso_1" value="GALLATO SILVIO"></div>
+                    <div class="course-info" style="margin-left: 40mm;">
+                        <input type="text" class="editable-field" data-field="formazione.primo_soccorso_2" value="STANIC BOJAN"></div>
+                    <div class="course-info" style="margin-left: 40mm;">
+                        <input type="text" class="editable-field" data-field="formazione.primo_soccorso_3" value="JOSIC TATOMIR"></div>
+                    <div class="date-info">Corso aggiornamento effettuato 
+                        <input type="text" class="editable-field" data-field="formazione.aggiornamento_primo_soccorso" value="Settembre 2022"></div>
+                </div>
+
+                <div class="section-title">SQUADRA ANTINCENDIO AZIENDALE</div>
+                <div class="course-section">
+                    <div class="course-info">a RISCHIO MEDIO 8 ore</div>
+                    <div class="course-info">Sono individuati per tali compiti i Sigg.: 
+                        <input type="text" class="editable-field" data-field="formazione.antincendio_1" value="GALLATO SILVIO"></div>
+                    <div class="course-info" style="margin-left: 40mm;">
+                        <input type="text" class="editable-field" data-field="formazione.antincendio_2" value="STANIC BOJAN"></div>
+                    <div class="course-info" style="margin-left: 40mm;">
+                        <input type="text" class="editable-field" data-field="formazione.antincendio_3" value="JOSIC TATOMIR"></div>
+                    <div class="date-info">Corso aggiornamento effettuato ad 
+                        <input type="text" class="editable-field" data-field="formazione.aggiornamento_antincendio" value="Aprile 2022"></div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 16 di 29
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="page17">
+            <div class="content-section">
+                <div class="section-title">CORSO DPI E LAVORI IN QUOTA</div>
+                <div class="course-section">
+                    <div class="course-info">Corso effettuati in data 
+                        <input type="date" class="editable-field" data-field="formazione.corso_dpi" value="2019-05-23"> 
+                        Aggiornamento corso sicurezza 
+                        <input type="text" class="editable-field" data-field="formazione.aggiornamento_dpi_1" value="Aprile 2021"> 
+                        Aggiornamento: 
+                        <input type="text" class="editable-field" data-field="formazione.aggiornamento_dpi_2" value="Giugno 2024"></div>
+                </div>
+
+                <div class="section-title">CORSO R.S.P.P.:</div>
+                <div class="course-section">
+                    <div class="course-info">Sono individuati per tali compiti i Sigg.: 
+                        <input type="text" class="editable-field" data-field="formazione.rspp_persona" value="GALLATO SILVIO"></div>
+                    <div class="date-info">Corso effettuato in data: 
+                        <input type="text" class="editable-field" data-field="formazione.corso_rspp" value="Maggio Giugno 2016"> 
+                        e aggiornamento in data 
+                        <input type="date" class="editable-field" data-field="formazione.aggiornamento_rspp" value="2021-01-10"></div>
+                </div>
+
+                <div class="section-title">GIUDIZIO DI IDONEITA' alla MANSIONE SPECIFICA</div>
+                <div class="course-section">
+                    <div class="course-info">Visite mediche con cadenza annuale con idoneità sanitaria tutti i dipendenti.</div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 17 di 29
+                </div>
+            </div>
+        </div>
+
+        <div class="page-container" id="page18">
+            <div class="content-section">
+                <div class="page-header">
+                    12. VALUTAZIONE DEI RISCHI DEL CANTIERE
+                </div>
+
+                <div class="section-title">METODOLOGIA E CRITERI</div>
+                
+                <div class="metodologia-section">
+                    Per ogni lavorazione vengono individuati i relativi pericoli connessi con le lavorazioni stesse, le attrezzature impiegate e i materiali utilizzati.
+                </div>
+
+                <div class="metodologia-section">
+                    I rischi sono stati analizzati in riferimento ai pericoli connessi alle diverse attività, alla gravità del danno, alla probabilità di accadimento ed alle misure di prevenzione già adottate.
+                </div>
+
+                <div class="section-title">FASE 1: ARRIVO AL CANTIERE CON MEZZI DELL'IMPRESA</div>
+
+                <table class="risk-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">RISCHIO</th>
+                            <th style="width: 35%;">VALUTAZIONE</th>
+                            <th style="width: 35%;">MISURE PREVENTIVE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Possibili investimenti di terze persone</td>
+                            <td class="risk-basso"><strong>BASSO</strong></td>
+                            <td>Il conducente dovrà accertarsi del cantiere e rispettare il codice della strada.</td>
+                        </tr>
+                        <tr>
+                            <td>Interferenza in itinere</td>
+                            <td class="risk-non-definibile"><strong>NON DEFINIBILE</strong></td>
+                            <td>Il conducente dovrà rispettare opportunamente il codice della strada.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="section-title">FASE 2: SOPRALLUOGO VISIVO DELL'AREA</div>
+
+                <table class="risk-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 30%;">RISCHIO</th>
+                            <th style="width: 35%;">VALUTAZIONE</th>
+                            <th style="width: 35%;">MISURE PREVENTIVE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nessuno</td>
+                            <td class="risk-irrilevante"><strong>IRRILEVANTE</strong></td>
+                            <td>Nessuno</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer">
+                <div class="footer-line">
+                    Revisione n. <span class="revision-sync">1</span> - 
+                    Data revisione <span class="revision-date-sync">15/01/2025</span> - 
+                    Impresa Rapida Asfalti Srl - Pagina 18 di 29
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STATUS BAR -->
+    <div class="status-bar" id="statusBar">
+        <span id="statusText">Pronto per la compilazione</span>
+        <span id="lastSaved">Ultimo salvataggio: Mai</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
