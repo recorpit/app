@@ -257,8 +257,8 @@ function generatePDFFromData(data) {
     // Salva PDF
     doc.save(fileName);
     
-    // Salva nel database
-    await savePOSToDatabase(data);
+    // Salva nel database (non bloccante)
+    savePOSToDatabase(data);
     
     showMessage('success', `PDF generato con successo: ${fileName}`);
     
@@ -271,11 +271,16 @@ function generatePDFFromData(data) {
 
 // Salva POS nel database
 async function savePOSToDatabase(data) {
-    const result = await posDB.create(data);
-    
-    if (!result.success) {
-        console.error('Errore salvataggio database:', result.error);
-        // Non blocchiamo il flusso se il salvataggio fallisce
+    try {
+        const result = await posDB.create(data);
+        
+        if (!result.success) {
+            console.error('Errore salvataggio database:', result.error);
+        } else {
+            console.log('POS salvato nel database con successo');
+        }
+    } catch (error) {
+        console.error('Errore durante il salvataggio:', error);
     }
 }
 
