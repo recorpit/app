@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storico POS - Generatore POS</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Storico POS</h1>
+            <p>Visualizza e gestisci tutti i POS generati</p>
+        </div>
+
+        <div class="main-card">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="🔍 Cerca per cliente o cantiere...">
+                <button class="btn-secondary" onclick="searchPOS()">Cerca</button>
+                <button class="btn-secondary" onclick="loadAllPOS()">Mostra Tutti</button>
+            </div>
+
+            <div id="posListContainer">
+                <div class="loading">
+                    <p>⏳ Caricamento in corso...</p>
+                </div>
+            </div>
+
+            <div class="generate-section">
+                <button class="btn-secondary" onclick="window.location.href='index.html'">
+                    ← Torna alla Home
+                </button>
+                <button class="btn-primary" onclick="window.location.href='nuovo-pos.html'">
+                    📝 Nuovo POS
+                </button>
+            </div>
+
+            <div id="statusMessage"></div>
+        </div>
+    </div>
+
+    <!-- Modal Dettagli -->
+    <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Dettagli POS</h2>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/storico.js"></script>
+</body>
+</html>
