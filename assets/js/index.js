@@ -1,9 +1,32 @@
-// Script minimo per homepage
-document.addEventListener('DOMContentLoaded', function() {
+// Homepage con statistiche Supabase
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('Generatore POS pronto!');
+    
+    // Verifica connessione Supabase
+    const isConnected = await checkSupabaseConnection();
+    
+    if (isConnected) {
+        // Carica statistiche
+        loadStats();
+    } else {
+        showMessage('warning', 'Database non connesso. Verifica la configurazione Supabase.');
+    }
 });
 
-// Mostra messaggi (se necessario in futuro)
+// Carica statistiche dal database
+async function loadStats() {
+    const result = await posDB.getStats();
+    
+    if (result.success) {
+        // Mostra statistiche
+        document.getElementById('stats').classList.remove('hidden');
+        document.getElementById('totalPos').textContent = result.stats.totale;
+        document.getElementById('posMonth').textContent = result.stats.ultimoMese;
+        document.getElementById('clientiUnici').textContent = result.stats.clientiUnici;
+    }
+}
+
+// Mostra messaggi
 function showMessage(type, message) {
     const statusDiv = document.getElementById('statusMessage');
     if (!statusDiv) return;
