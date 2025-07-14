@@ -8,7 +8,64 @@ document.addEventListener('DOMContentLoaded', function() {
     // Form submit handler
     const form = document.getElementById('posDataForm');
     form.addEventListener('submit', generatePDF);
+    
+    // Verifica se dobbiamo rigenerare un POS esistente
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('regenerate') === 'true') {
+        loadExistingPOS();
+    }
 });
+
+// Carica dati POS esistente per rigenerazione
+function loadExistingPOS() {
+    const savedData = localStorage.getItem('regeneratePOS');
+    if (!savedData) return;
+    
+    try {
+        const pos = JSON.parse(savedData);
+        const form = document.getElementById('posDataForm');
+        
+        // Compila il form con i dati salvati
+        fillFormField('intestazioneCliente', pos.cliente_data.intestazioneCliente);
+        fillFormField('indirizzocliente', pos.cliente_data.indirizzocliente);
+        fillFormField('capcliente', pos.cliente_data.capcliente);
+        fillFormField('Paesecliente', pos.cliente_data.Paesecliente);
+        fillFormField('pivacliente', pos.cliente_data.pivacliente);
+        
+        fillFormField('paesecantiere', pos.cantiere_data.paese);
+        fillFormField('indirizzocantiere', pos.cantiere_data.indirizzo);
+        
+        fillFormField('intestazioneImpresa', pos.impresa_data.intestazione);
+        fillFormField('indirizzoimpresa', pos.impresa_data.indirizzo);
+        fillFormField('capImpresa', pos.impresa_data.cap);
+        fillFormField('PaeseImpresa', pos.impresa_data.paese);
+        
+        // Data e durata
+        fillFormField('datainiziolavori', pos.cliente_data.datainiziolavori);
+        fillFormField('duratalavori', pos.cliente_data.duratalavori);
+        
+        // Lavorazioni
+        pos.lavorazioni.forEach((lav, index) => {
+            fillFormField(`prodottotest${index + 1}`, lav.descrizione);
+            fillFormField(`duratalav${index + 1}`, lav.durata);
+        });
+        
+        // Pulisci localStorage
+        localStorage.removeItem('regeneratePOS');
+        
+        showMessage('info', 'Dati caricati. Modifica e rigenera il PDF.');
+    } catch (error) {
+        console.error('Errore caricamento dati:', error);
+    }
+}
+
+// Helper per compilare campi form
+function fillFormField(name, value) {
+    const field = document.querySelector(`[name="${name}"]`);
+    if (field && value) {
+        field.value = value;
+    }
+}
 
 // Genera PDF
 async function generatePDF(e) {
