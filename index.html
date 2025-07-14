@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generatore POS - Home</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Generatore POS</h1>
+            <p>Sistema Web per la generazione di Piani Operativi di Sicurezza</p>
+        </div>
+
+        <div class="main-card">
+            <h2>Benvenuto nel Generatore POS</h2>
+            
+            <div class="home-buttons">
+                <button class="btn-primary" onclick="window.location.href='nuovo-pos.html'">
+                    📝 Nuovo POS
+                </button>
+                <button class="btn-primary btn-disabled" disabled>
+                    📁 Storico POS
+                </button>
+            </div>
+
+            <div class="info-box">
+                <p>📄 Il sistema utilizza il modello standard <strong>modello_base.docx</strong></p>
+                <p>🚀 Pronto per generare il tuo Piano Operativo di Sicurezza</p>
+            </div>
+
+            <div id="statusMessage"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.40.2/docxtemplater.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.1.4/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
