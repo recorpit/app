@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS Builder Tool - Rapida Asfalti SRL</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏗️ POS Builder Tool</h1>
+            <p>Generatore Avanzato Piano Operativo di Sicurezza - Rapida Asfalti SRL</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="sidebar">
+                <!-- Step 1: Dati Base -->
+                <div class="step active" data-step="1">
+                    <div class="step-header" onclick="toggleStep(1)">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Dati Cliente & Cantiere</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label for="intestazioneCliente">Denominazione Cliente</label>
+                            <input type="text" id="intestazioneCliente" placeholder="es. ACME COSTRUZIONI SRL" onchange="updatePreview()">
+                            <div class="help-text">Nome completo del committente/cliente</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indirizzocliente">Indirizzo Cliente</label>
+                            <input type="text" id="indirizzocliente" placeholder="es. Via Roma, 123" onchange="updatePreview()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paesecantiere">Località Cantiere</label>
+                            <input type="text" id="paesecantiere" placeholder="es. Milano (MI)" onchange="updatePreview()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="indirizzocantiere">Indirizzo Cantiere</label>
+                            <input type="text" id="indirizzocantiere" placeholder="es. Piazza Duomo, 15" onchange="updatePreview()">
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="nextStep()">Avanti →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Lavorazioni -->
+                <div class="step" data-step="2">
+                    <div class="step-header" onclick="toggleStep(2)">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Lavorazioni & Tempi</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label for="datainiziolavori">Data Inizio Lavori</label>
+                            <input type="date" id="datainiziolavori" onchange="updatePreview()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="duratalavori">Durata Totale (giorni)</label>
+                            <input type="number" id="duratalavori" placeholder="5" min="1" onchange="updatePreview()">
+                        </div>
+                        
+                        <h4>Lavorazioni Specifiche:</h4>
+                        <div class="form-group">
+                            <label for="prodottotest1">Lavorazione 1</label>
+                            <input type="text" id="prodottotest1" placeholder="es. Impermeabilizzazione copertura" onchange="updatePreview()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="prodottotest2">Lavorazione 2</label>
+                            <input type="text" id="prodottotest2" placeholder="es. Rifacimento guaina bituminosa" onchange="updatePreview()">
+                        </div>
+                        
+                        <button class="btn btn-secondary" onclick="prevStep()">← Indietro</button>
+                        <button class="btn btn-primary" onclick="nextStep()">Avanti →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Immagini -->
+                <div class="step" data-step="3">
+                    <div class="step-header" onclick="toggleStep(3)">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Logo & Immagini</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label>Logo Rapida Asfalti</label>
+                            <div class="file-upload" id="logoUpload" onclick="document.getElementById('logoFile').click()">
+                                <div>📁 Clicca o trascina il logo qui</div>
+                                <div class="help-text">Formato consigliato: PNG/JPG (max 2MB)</div>
+                            </div>
+                            <input type="file" id="logoFile" accept="image/*" style="display: none" onchange="handleLogoUpload(event)">
+                            <div id="logoPreview"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Firma Responsabile (opzionale)</label>
+                            <div class="file-upload" id="firmaUpload" onclick="document.getElementById('firmaFile').click()">
+                                <div>✍️ Clicca o trascina la firma qui</div>
+                            </div>
+                            <input type="file" id="firmaFile" accept="image/*" style="display: none" onchange="handleFirmaUpload(event)">
+                            <div id="firmaPreview"></div>
+                        </div>
+                        
+                        <button class="btn btn-secondary" onclick="prevStep()">← Indietro</button>
+                        <button class="btn btn-primary" onclick="nextStep()">Avanti →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Personalizzazioni -->
+                <div class="step" data-step="4">
+                    <div class="step-header" onclick="toggleStep(4)">
+                        <div class="step-number">4</div>
+                        <div class="step-title">Personalizzazioni</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="form-group">
+                            <label for="colorScheme">Schema Colori</label>
+                            <select id="colorScheme" onchange="updatePreview()">
+                                <option value="blue">Blu Corporate (Default)</option>
+                                <option value="green">Verde Sicurezza</option>
+                                <option value="red">Rosso Allerta</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fontSize">Dimensione Testo</label>
+                            <select id="fontSize" onchange="updatePreview()">
+                                <option value="normal">Normale</option>
+                                <option value="large">Grande</option>
+                                <option value="small">Piccolo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="customNotes">Note Aggiuntive (opzionale)</label>
+                            <textarea id="customNotes" rows="3" placeholder="Eventuali note specifiche per questo cantiere..." onchange="updatePreview()"></textarea>
+                        </div>
+                        
+                        <button class="btn btn-secondary" onclick="prevStep()">← Indietro</button>
+                        <button class="btn btn-primary" onclick="nextStep()">Avanti →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Generazione -->
+                <div class="step" data-step="5">
+                    <div class="step-header" onclick="toggleStep(5)">
+                        <div class="step-number">5</div>
+                        <div class="step-title">Generazione PDF</div>
+                    </div>
+                    <div class="step-content">
+                        <div class="variable-preview">
+                            <strong>📋 Riepilogo Variabili:</strong><br>
+                            <span id="variableSummary">Compila i dati per vedere il riepilogo</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="fileName">Nome File PDF</label>
+                            <input type="text" id="fileName" placeholder="POS_Cliente_2024" onchange="updatePreview()">
+                            <div class="help-text">Il nome file verrà automaticamente formattato</div>
+                        </div>
+                        
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressBar"></div>
+                        </div>
+                        
+                        <button class="btn btn-secondary" onclick="prevStep()">← Indietro</button>
+                        <button class="btn btn-success" onclick="generateFinalPDF()">🚀 Genera PDF Completo (29 pagine)</button>
+                        
+                        <div class="success-message" id="successMessage">
+                            ✅ PDF generato con successo! Il download dovrebbe iniziare automaticamente.
+                        </div>
+                        
+                        <div class="error-message" id="errorMessage">
+                            ❌ Errore nella generazione. Verifica che tutti i campi obbligatori siano compilati.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-area">
+                <div class="page-controls">
+                    <div class="page-selector">
+                        <label>Pagina:</label>
+                        <select id="pageSelect" onchange="updatePagePreview()">
+                            <option value="1">1 - Copertina</option>
+                            <option value="2">2 - Indice</option>
+                            <option value="3">3 - Definizioni</option>
+                            <option value="4">4 - Dati Cantiere</option>
+                            <option value="5">5 - Mansioni Sicurezza</option>
+                            <option value="6">6 - Organizzazione Aziendale</option>
+                            <option value="7">7 - Descrizione Attività</option>
+                            <option value="8">8 - Modalità Organizzative</option>
+                            <option value="9">9 - Servizi Igienici</option>
+                            <option value="10">10 - Elenco Attrezzature</option>
+                            <option value="11">11 - Sostanze Pericolose</option>
+                            <option value="12">12 - DPI</option>
+                            <option value="13">13 - Rumore e Vibrazioni</option>
+                            <option value="14">14 - Macroclima</option>
+                            <option value="15">15 - Procedure PSC</option>
+                            <option value="16">16 - Formazione Dipendenti</option>
+                            <option value="17">17 - Formazione Continua</option>
+                            <option value="18">18 - Valutazione Rischi</option>
+                            <option value="19">19 - Rischi Fasi 3-5</option>
+                            <option value="20">20 - Impermeabilizzazione</option>
+                            <option value="21">21 - Incendio e Gas</option>
+                            <option value="22">22 - Cadute ed Elettrico</option>
+                            <option value="23">23 - Smontaggio e Pulizia</option>
+                            <option value="24">24 - Bombola Gas</option>
+                            <option value="25">25 - Cutter</option>
+                            <option value="26">26 - Pennello</option>
+                            <option value="27">27 - Spazzola</option>
+                            <option value="28">28 - Pompa Airless</option>
+                            <option value="29">29 - Trapano</option>
+                        </select>
+                    </div>
+                    
+                    <div class="navigation-controls">
+                        <button class="btn btn-secondary" onclick="previousPage()" id="prevPageBtn">
+                            ← Precedente
+                        </button>
+                        <span class="page-indicator">
+                            Pagina <span id="currentPageDisplay">1</span> di 29
+                        </span>
+                        <button class="btn btn-secondary" onclick="nextPage()" id="nextPageBtn">
+                            Successiva →
+                        </button>
+                    </div>
+                    
+                    <div class="zoom-controls">
+                        <button class="btn btn-secondary" onclick="zoomOut()">🔍-</button>
+                        <span id="zoomLevel">100%</span>
+                        <button class="btn btn-secondary" onclick="zoomIn()">🔍+</button>
+                    </div>
+                    
+                    <button class="btn btn-primary" onclick="updatePreview()">🔄 Aggiorna Anteprima</button>
+                </div>
+                
+                <div class="preview-document" id="documentPreview">
+                    <div class="preview-header">
+                        <span style="font-size: 10px; color: #666;">Revisione n. 2 | Data revisione 10/05/2022 | Impresa Rapida Asfalti Srl</span>
+                        <span style="font-size: 10px; color: #666;">Pagina <span id="currentPageNum">1</span> di 29</span>
+                    </div>
+                    
+                    <div id="pageContent">
+                        <!-- Il contenuto della pagina verrà inserito qui dinamicamente -->
+                        <div class="document-title">PIANO OPERATIVO di SICUREZZA (P.O.S.)</div>
+                        <div style="text-align: center; font-style: italic; margin: 10px 0;">
+                            (ai sensi del D.Lgs. 9 aprile 2008, n. 81 e s.m.i.)
+                        </div>
+                        
+                        <div class="logo-preview" id="logoDisplay">
+                            Rapida Asfalti Srl<br>LOGO
+                        </div>
+                        
+                        <div style="border: 2px solid #1e3a8a; padding: 20px; margin: 30px 0; text-align: center;">
+                            <h2 style="margin: 10px 0;">PIANO OPERATIVO di SICUREZZA</h2>
+                            <h3 style="margin: 10px 0;">(P.O.S.)</h3>
+                            <div style="font-style: italic;">(ai sensi del D.Lgs. 9 aprile 2008, n. 81 e s.m.i.)</div>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin: 30px 0;">
+                            <div style="border: 2px solid #1e3a8a; padding: 15px; width: 45%;">
+                                <h4 style="margin: 0 0 10px 0;">Committente:</h4>
+                                <div id="clientePreview">
+                                    <div><span class="var-placeholder">Nome Cliente</span></div>
+                                    <div><span class="var-placeholder">Indirizzo Cliente</span></div>
+                                </div>
+                            </div>
+                            <div style="border: 2px solid #1e3a8a; padding: 15px; width: 45%;">
+                                <h4 style="margin: 0 0 10px 0;">L'Impresa:</h4>
+                                <div><strong>RAPIDA ASFALTI SRL</strong></div>
+                                <div>VIA PADRE LEOPOLDO, 67/D</div>
+                                <div>36016 THIENE (VI)</div>
+                                <div>P.IVA 03996820241</div>
+                                <div id="firmaDisplay" style="margin-top: 15px; text-align: right;">
+                                    <!-- La firma apparirà qui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer con informazioni complete -->
+                    <div style="position: absolute; bottom: 10px; left: 0; right: 0; border-top: 1px solid #ddd; padding-top: 10px; display: flex; justify-content: space-between; font-size: 10px; color: #666;">
+                        <span>Revisione n. 2 | Data revisione 10/05/2022 | Impresa Rapida Asfalti Srl</span>
+                        <span>Pagina <span id="footerPageNum">1</span> di 29</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
