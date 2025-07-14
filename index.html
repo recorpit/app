@@ -20,20 +20,41 @@
                 <button class="btn-primary" onclick="window.location.href='nuovo-pos.html'">
                     📝 Nuovo POS
                 </button>
-                <button class="btn-primary btn-disabled" disabled>
+                <button class="btn-primary" onclick="window.location.href='storico.html'">
                     📁 Storico POS
                 </button>
             </div>
 
             <div class="info-box">
                 <p>📄 Il sistema utilizza il modello standard <strong>modello_base.docx</strong></p>
-                <p>🚀 Pronto per generare il tuo Piano Operativo di Sicurezza</p>
+                <p>☁️ Dati salvati automaticamente su cloud</p>
+            </div>
+
+            <div id="stats" class="stats-box hidden">
+                <h3>📊 Statistiche</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalPos">0</span>
+                        <span class="stat-label">POS Totali</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="posMonth">0</span>
+                        <span class="stat-label">Ultimo Mese</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="clientiUnici">0</span>
+                        <span class="stat-label">Clienti</span>
+                    </div>
+                </div>
             </div>
 
             <div id="statusMessage"></div>
         </div>
     </div>
 
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
     <script src="assets/js/index.js"></script>
 </body>
 </html>
