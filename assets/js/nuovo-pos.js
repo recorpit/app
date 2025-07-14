@@ -1,9 +1,6 @@
 // Initialize jsPDF
 const { jsPDF } = window.jspdf;
 
-// Path del template
-const TEMPLATE_PATH = 'data/modello_base.docx';
-
 document.addEventListener('DOMContentLoaded', function() {
     // Form submit handler
     const form = document.getElementById('posDataForm');
@@ -89,62 +86,12 @@ async function generatePDF(e) {
             data.datainiziolavori = date.toLocaleDateString('it-IT');
         }
         
-        // Carica e processa il template
-        const templateProcessed = await loadAndProcessTemplate(data);
-        
-        // Genera il PDF
+        // Genera direttamente il PDF senza template Word
         generatePDFFromData(data);
         
     } catch (error) {
         console.error('Errore:', error);
         showMessage('error', 'Errore nella generazione del documento: ' + error.message);
-    }
-}
-
-// Carica e processa il template Word
-async function loadAndProcessTemplate(data) {
-    try {
-        // Carica il template dalla cartella data
-        const response = await fetch(TEMPLATE_PATH);
-        if (!response.ok) {
-            throw new Error('Impossibile caricare il modello base');
-        }
-        
-        const arrayBuffer = await response.arrayBuffer();
-        const templateContent = new Uint8Array(arrayBuffer);
-        
-        // Combina dati impresa
-        const impresaCompleta = `${data.intestazioneImpresa}\n${data.indirizzoimpresa}\n${data.capImpresa}\n${data.PaeseImpresa}`;
-        
-        // Prepara dati per il template
-        const templateData = {
-            ...data,
-            intestazioneImpresa: impresaCompleta,
-            indirizzoimpresa: '',
-            capImpresa: '',
-            PaeseImpresa: ''
-        };
-        
-        // Crea documento da template
-        const zip = new PizZip(templateContent);
-        const doc = new window.docxtemplater(zip, {
-            paragraphLoop: true,
-            linebreaks: true,
-            delimiters: {
-                start: '$',
-                end: '$'
-            }
-        });
-        
-        // Imposta dati
-        doc.setData(templateData);
-        doc.render();
-        
-        return doc;
-        
-    } catch (error) {
-        console.error('Errore nel processamento del template:', error);
-        throw error;
     }
 }
 
