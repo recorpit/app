@@ -1,695 +1,1524 @@
-// Variabili globali
-let currentStep = 1;
-let currentZoom = 100;
-let uploadedLogo = null;
-let uploadedFirma = null;
+${generateFooter(24)}
+    `;
+}
 
-// Inizializza data odierna
+function generateMixerPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">SCHEDA ATTREZZATURA - BETONIERA</h2>
+        </div>
+        
+        <div class="equipment-card">
+            <h4>🏗️ BETONIERA - Codice ATT-002</h4>
+            
+            <div class="checkbox-present">
+                <strong>PRESENTE: ☐ SI ☑ NO</strong>
+            </div>
+            
+            <table class="risk-table">
+                <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th></tr>
+                <tr>
+                    <td>⚡ Elettrocuzione</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>🔄 Impigliamento organi in movimento</td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                </tr>
+                <tr>
+                    <td>👁️ Getti di materiale</td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                </tr>
+            </table>
+            
+            <h5>🔍 PRIMA DELL'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Verificare l'integrità delle parti elettriche visibili</li>
+                <li class="editable-element" data-type="text">Verificare l'efficienza del comando di emergenza</li>
+                <li class="editable-element" data-type="text">Controllare la pulizia della vasca di impasto</li>
+                <li class="editable-element" data-type="text">Verificare la stabilità della macchina</li>
+            </ul>
+            
+            <h5>⚡ DURANTE L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Mantenere costante la pulizia dell'area circostante</li>
+                <li class="editable-element" data-type="text">Non rimuovere le protezioni degli organi in movimento</li>
+                <li class="editable-element" data-type="text">Non introdurre attrezzi nella vasca con motore acceso</li>
+                <li class="editable-element" data-type="text">Nelle pause di lavoro spegnere il motore</li>
+            </ul>
+            
+            <h5>🛡️ DOPO L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Scollegare elettricamente la macchina</li>
+                <li class="editable-element" data-type="text">Eseguire le operazioni di revisione e manutenzione</li>
+                <li class="editable-element" data-type="text">Pulire accuratamente la vasca di impasto</li>
+            </ul>
+            
+            <h5>🦺 DPI DI RIFERIMENTO:</h5>
+            <p class="editable-element" data-type="text">Casco, guanti da lavoro, calzature di sicurezza, occhiali protettivi</p>
+        </div>
+        
+        ${generateFooter(25)}
+    `;
+}
+
+function generateCompressorPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">SCHEDA ATTREZZATURA - COMPRESSORE</h2>
+        </div>
+        
+        <div class="equipment-card">
+            <h4>💨 COMPRESSORE - Codice ATT-003</h4>
+            
+            <div class="checkbox-present">
+                <strong>PRESENTE: ☑ SI ☐ NO</strong>
+            </div>
+            
+            <table class="risk-table">
+                <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th></tr>
+                <tr>
+                    <td>💥 Scoppio serbatoio</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>🔊 Rumore</td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                </tr>
+                <tr>
+                    <td>⚡ Elettrocuzione</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+            </table>
+            
+            <h5>🔍 PRIMA DELL'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Posizionare la macchina in luogo ventilato</li>
+                <li class="editable-element" data-type="text">Verificare l'efficienza del manometro</li>
+                <li class="editable-element" data-type="text">Controllare l'integrità dell'isolamento elettrico</li>
+                <li class="editable-element" data-type="text">Verificare l'efficienza della valvola di sicurezza</li>
+            </ul>
+            
+            <h5>⚡ DURANTE L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Tenere sotto controllo i manometri</li>
+                <li class="editable-element" data-type="text">Non rimuovere gli sportelli del compressore</li>
+                <li class="editable-element" data-type="text">Effettuare i rifornimenti a motore spento</li>
+                <li class="editable-element" data-type="text">Segnalare tempestivamente eventuali anomalie</li>
+            </ul>
+            
+            <h5>🛡️ DOPO L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Spegnere il motore e scaricare il serbatoio</li>
+                <li class="editable-element" data-type="text">Scollegare elettricamente la macchina</li>
+                <li class="editable-element" data-type="text">Eseguire le operazioni di revisione e manutenzione</li>
+            </ul>
+            
+            <h5>🦺 DPI DI RIFERIMENTO:</h5>
+            <p class="editable-element" data-type="text">Casco, calzature di sicurezza, cuffie o tappi antirumore, guanti da lavoro</p>
+        </div>
+        
+        ${generateFooter(26)}
+    `;
+}
+
+function generateExcavatorPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">SCHEDA ATTREZZATURA - ESCAVATORE</h2>
+        </div>
+        
+        <div class="equipment-card">
+            <h4>🚜 ESCAVATORE - Codice ATT-004</h4>
+            
+            <div class="checkbox-present">
+                <strong>PRESENTE: ☑ SI ☐ NO</strong>
+            </div>
+            
+            <table class="risk-table">
+                <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th></tr>
+                <tr>
+                    <td>🏗️ Ribaltamento</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>⚠️ Investimento persone</td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                </tr>
+                <tr>
+                    <td>💥 Urti con strutture</td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+            </table>
+            
+            <h5>🔍 PRIMA DELL'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Controllare l'efficienza dei comandi</li>
+                <li class="editable-element" data-type="text">Verificare l'efficienza del girofaro e dell'avvisatore acustico</li>
+                <li class="editable-element" data-type="text">Garantire la visibilità del posto di manovra</li>
+                <li class="editable-element" data-type="text">Verificare l'integrità dei tubi flessibili</li>
+            </ul>
+            
+            <h5>⚡ DURANTE L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Segnalare l'operatività con il girofaro</li>
+                <li class="editable-element" data-type="text">Non ammettere a bordo altre persone</li>
+                <li class="editable-element" data-type="text">Nelle fasi di inattività posare a terra la benna</li>
+                <li class="editable-element" data-type="text">Mantenere sgombra e pulita la cabina</li>
+                <li class="editable-element" data-type="text">Richiedere l'aiuto di personale a terra per manovre in spazi ristretti</li>
+            </ul>
+            
+            <h5>🛡️ DOPO L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Posizionare correttamente la macchina</li>
+                <li class="editable-element" data-type="text">Azionare il freno di stazionamento</li>
+                <li class="editable-element" data-type="text">Abbassare la benna a terra</li>
+                <li class="editable-element" data-type="text">Eseguire le operazioni di revisione e manutenzione</li>
+            </ul>
+            
+            <h5>🦺 DPI DI RIFERIMENTO:</h5>
+            <p class="editable-element" data-type="text">Casco, calzature di sicurezza, guanti da lavoro, abbigliamento alta visibilità</p>
+        </div>
+        
+        ${generateFooter(27)}
+    `;
+}
+
+function generateCranePage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">SCHEDA ATTREZZATURA - AUTOGRU</h2>
+        </div>
+        
+        <div class="equipment-card">
+            <h4>🏗️ AUTOGRU - Codice ATT-005</h4>
+            
+            <div class="checkbox-present">
+                <strong>PRESENTE: ☐ SI ☑ NO</strong>
+            </div>
+            
+            <table class="risk-table">
+                <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th></tr>
+                <tr>
+                    <td>🏗️ Caduta di carichi sospesi</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>🏗️ Ribaltamento</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>⚡ Elettrocuzione</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+            </table>
+            
+            <h5>🔍 PRIMA DELL'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Verificare l'efficienza dei dispositivi frenanti</li>
+                <li class="editable-element" data-type="text">Controllare l'efficienza delle protezioni</li>
+                <li class="editable-element" data-type="text">Verificare l'efficienza del limitatore di carico</li>
+                <li class="editable-element" data-type="text">Delimitare la zona di lavoro</li>
+            </ul>
+            
+            <h5>⚡ DURANTE L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Mantenere la macchina in perfetto equilibrio</li>
+                <li class="editable-element" data-type="text">Non utilizzare la gru come argano</li>
+                <li class="editable-element" data-type="text">Mantenere tensionati i cavi</li>
+                <li class="editable-element" data-type="text">Non effettuare manovre brusche</li>
+                <li class="editable-element" data-type="text">Controllare che non vi siano persone nell'area di manovra</li>
+            </ul>
+            
+            <h5>🛡️ DOPO L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Non lasciare carichi sospesi</li>
+                <li class="editable-element" data-type="text">Posizionare correttamente la macchina</li>
+                <li class="editable-element" data-type="text">Azionare il freno di stazionamento</li>
+                <li class="editable-element" data-type="text">Eseguire le operazioni di revisione e manutenzione</li>
+            </ul>
+            
+            <h5>🦺 DPI DI RIFERIMENTO:</h5>
+            <p class="editable-element" data-type="text">Casco, calzature di sicurezza, guanti da lavoro, abbigliamento alta visibilità</p>
+        </div>
+        
+        ${generateFooter(28)}
+    `;
+}
+
+function generateFinalPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">FINE DOCUMENTO POS</h2>
+        </div>
+        
+        <div style="text-align: center; margin: 4rem 0;">
+            <h3 class="editable-element" data-type="text">Il presente Piano Operativo di Sicurezza</h3>
+            <h3 class="editable-element" data-type="text">è stato redatto in conformità al</h3>
+            <h3 class="editable-element" data-type="text">D.Lgs. 81/2008 e s.m.i.</h3>
+        </div>
+        
+        <div style="margin: 3rem 0;">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="width: 50%; padding: 2rem; border: 1px solid #ddd;">
+                        <h4>👷 Il Datore di Lavoro</h4>
+                        <p style="margin: 2rem 0;">RAPIDA ASFALTI SRL</p>
+                        <div style="border-top: 1px solid #666; margin-top: 3rem; padding-top: 0.5rem;">
+                            <em class="editable-element" data-type="text">Firma e Timbro</em>
+                        </div>
+                    </td>
+                    <td style="width: 50%; padding: 2rem; border: 1px solid #ddd;">
+                        <h4>🛡️ Il Responsabile RSPP</h4>
+                        <p style="margin: 2rem 0;" class="editable-element" data-type="text">Nome RSPP</p>
+                        <div style="border-top: 1px solid #666; margin-top: 3rem; padding-top: 0.5rem;">
+                            <em class="editable-element" data-type="text">Firma</em>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="text-align: center; margin: 3rem 0;">
+            <p><strong>Data redazione:</strong> <span class="editable-element" data-type="text">${new Date().toLocaleDateString('it-IT')}</span></p>
+            <p><strong>Revisione n.:</strong> <span class="editable-element" data-type="text">2</span></p>
+            <p><strong>Validità:</strong> <span class="editable-element" data-type="text">Per tutta la durata dei lavori</span></p>
+        </div>
+        
+        <div style="margin-top: 4rem; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+            <p style="text-align: center; font-size: 0.9rem; color: #666;">
+                <strong class="editable-element" data-type="text">RAPIDA ASFALTI SRL</strong><br>
+                <span class="editable-element" data-type="text">Via Padre Leopoldo, 67/D - 36016 Thiene (VI)</span><br>
+                <span class="editable-element" data-type="text">P.IVA 03996820241</span>
+            </p>
+        </div>
+        
+        ${generateFooter(29)}
+    `;
+}
+
+// Funzioni per le altre pagine (continua...)
+function generateActivitiesPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">5. ATTIVITÀ DEL CANTIERE</h2>
+        </div>
+        
+        <div class="activities-content">
+            <p class="editable-element" data-type="text">Le attività principali del cantiere comprendono tutte le fasi necessarie alla realizzazione dell'opera, nel rispetto delle normative vigenti in materia di sicurezza e salute sui luoghi di lavoro.</p>
+            
+            <h4>📋 Elenco Attività Principali</h4>
+            <table class="risk-table">
+                <tr><th>FASE</th><th>DESCRIZIONE ATTIVITÀ</th><th>DURATA</th></tr>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td class="editable-element" data-type="text">Allestimento cantiere e installazione segnaletica</td>
+                    <td class="editable-element" data-type="text">2 giorni</td>
+                </tr>
+                <tr>
+                    <td><strong>2</strong></td>
+                    <td class="editable-element" data-type="text">Demolizione e scarifica pavimentazione esistente</td>
+                    <td class="editable-element" data-type="text">3 giorni</td>
+                </tr>
+                <tr>
+                    <td><strong>3</strong></td>
+                    <td class="editable-element" data-type="text">Scavi e movimentazione terra</td>
+                    <td class="editable-element" data-type="text">4 giorni</td>
+                </tr>
+                <tr>
+                    <td><strong>4</strong></td>
+                    <td class="editable-element" data-type="text">Posa sottoservizi e opere di drenaggio</td>
+                    <td class="editable-element" data-type="text">2 giorni</td>
+                </tr>
+                <tr>
+                    <td><strong>5</strong></td>
+                    <td class="editable-element" data-type="text">Realizzazione fondazione stradale</td>
+                    <td class="editable-element" data-type="text">2 giorni</td>
+                </tr>
+                <tr>
+                    <td><strong>6</strong></td>
+                    <td class="editable-element" data-type="text">Stesa e compattazione conglomerato bituminoso</td>
+                    <td class="editable-element" data-type="text">1 giorno</td>
+                </tr>
+                <tr>
+                    <td><strong>7</strong></td>
+                    <td class="editable-element" data-type="text">Finiture e ripristini</td>
+                    <td class="editable-element" data-type="text">1 giorno</td>
+                </tr>
+            </table>
+        </div>
+        
+        ${generateFooter(7)}
+    `;
+}
+
+function generateModalitiesPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">6. MODALITÀ ORGANIZZATIVE</h2>
+        </div>
+        
+        <div class="modalities-content">
+            <h4>⏰ Orari di Lavoro</h4>
+            <table class="risk-table">
+                <tr><th>PERIODO</th><th>ORARIO</th><th>NOTE</th></tr>
+                <tr>
+                    <td><strong>Lunedì - Venerdì</strong></td>
+                    <td class="editable-element" data-type="text">08:00 - 12:00 / 13:00 - 17:00</td>
+                    <td class="editable-element" data-type="text">Orario standard</td>
+                </tr>
+                <tr>
+                    <td><strong>Sabato</strong></td>
+                    <td class="editable-element" data-type="text">08:00 - 12:00</td>
+                    <td class="editable-element" data-type="text">Se necessario</td>
+                </tr>
+                <tr>
+                    <td><strong>Domenica</strong></td>
+                    <td class="editable-element" data-type="text">Riposo</td>
+                    <td class="editable-element" data-type="text">Salvo emergenze</td>
+                </tr>
+            </table>
+            
+            <h4>🚧 Organizzazione del Cantiere</h4>
+            <ul>
+                <li class="editable-element" data-type="text"><strong>Accessi:</strong> Accesso principale da via definita dal PSC</li>
+                <li class="editable-element" data-type="text"><strong>Viabilità:</strong> Percorsi separati per mezzi e pedoni</li>
+                <li class="editable-element" data-type="text"><strong>Depositi:</strong> Aree dedicate per materiali e attrezzature</li>
+                <li class="editable-element" data-type="text"><strong>Parcheggi:</strong> Area dedicata per veicoli del personale</li>
+                <li class="editable-element" data-type="text"><strong>Rifiuti:</strong> Raccolta differenziata secondo normativa</li>
+            </ul>
+            
+            <h4>📞 Comunicazioni</h4>
+            <p class="editable-element" data-type="text">Tutte le comunicazioni di cantiere avverranno tramite il capo cantiere che mantiene i contatti con la direzione lavori e il coordinatore per la sicurezza in fase di esecuzione.</p>
+        </div>
+        
+        ${generateFooter(8)}
+    `;
+}
+
+function generateServicesPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">7. SERVIZI IGIENICO ASSISTENZIALI</h2>
+        </div>
+        
+        <div class="services-content">
+            <h4>🚿 Servizi Igienici</h4>
+            <table class="risk-table">
+                <tr><th>SERVIZIO</th><th>UBICAZIONE</th><th>CARATTERISTICHE</th></tr>
+                <tr>
+                    <td><strong>WC</strong></td>
+                    <td class="editable-element" data-type="text">Bagno chimico portatile</td>
+                    <td class="editable-element" data-type="text">Numero minimo secondo D.Lgs 81/08</td>
+                </tr>
+                <tr>
+                    <td><strong>Lavabo</strong></td>
+                    <td class="editable-element" data-type="text">Integrato nel bagno chimico</td>
+                    <td class="editable-element" data-type="text">Acqua potabile e sapone</td>
+                </tr>
+                <tr>
+                    <td><strong>Spogliatoio</strong></td>
+                    <td class="editable-element" data-type="text">Container prefabbricato</td>
+                    <td class="editable-element" data-type="text">Armadietti doppi per abbigliamento</td>
+                </tr>
+            </table>
+            
+            <h4>🍽️ Refettorio</h4>
+            <p class="editable-element" data-type="text">Il refettorio è ubicato nel container ufficio, dotato di tavolo, sedie, frigorifero e scaldavivande. L'ambiente è riscaldato e ventilato secondo le normative vigenti.</p>
+            
+            <h4>⚕️ Primo Soccorso</h4>
+            <ul>
+                <li class="editable-element" data-type="text"><strong>Cassetta di pronto soccorso:</strong> Ubicata nell'ufficio di cantiere</li>
+                <li class="editable-element" data-type="text"><strong>Responsabile:</strong> Capo cantiere con formazione specifica</li>
+                <li class="editable-element" data-type="text"><strong>Numeri emergenza:</strong> 118 - 115 - 112</li>
+                <li class="editable-element" data-type="text"><strong>Ospedale più vicino:</strong> Da definire secondo ubicazione cantiere</li>
+            </ul>
+            
+            <h4>🧯 Antincendio</h4>
+            <p class="editable-element" data-type="text">Estintori a polvere da 6 kg ubicati presso l'ufficio di cantiere e i depositi materiali. Responsabile antincendio: capo cantiere con formazione specifica.</p>
+        </div>
+        
+        ${generateFooter(9)}
+    `;
+}
+
+function generateEquipmentPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">8. ATTREZZATURE</h2>
+        </div>
+        
+        <div class="equipment-content">
+            <h4>🔧 Attrezzature Manuali</h4>
+            <table class="risk-table">
+                <tr><th>ATTREZZATURA</th><th>USO</th><th>RISCHI PRINCIPALI</th></tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Martello demolitore</td>
+                    <td class="editable-element" data-type="text">Demolizioni</td>
+                    <td class="editable-element" data-type="text">Rumore, vibrazioni</td>
+                </tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Flex</td>
+                    <td class="editable-element" data-type="text">Taglio materiali</td>
+                    <td class="editable-element" data-type="text">Proiezione schegge, rumore</td>
+                </tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Trapano</td>
+                    <td class="editable-element" data-type="text">Forature</td>
+                    <td class="editable-element" data-type="text">Elettrocuzione, rumore</td>
+                </tr>
+            </table>
+            
+            <h4>🚜 Macchine e Mezzi d'Opera</h4>
+            <table class="risk-table">
+                <tr><th>MACCHINA</th><th>USO</th><th>OPERATORE</th></tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Escavatore</td>
+                    <td class="editable-element" data-type="text">Scavi e demolizioni</td>
+                    <td class="editable-element" data-type="text">Con patentino</td>
+                </tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Pala caricatrice</td>
+                    <td class="editable-element" data-type="text">Movimentazione materiali</td>
+                    <td class="editable-element" data-type="text">Con patentino</td>
+                </tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Rullo compattatore</td>
+                    <td class="editable-element" data-type="text">Compattazione</td>
+                    <td class="editable-element" data-type="text">Con patentino</td>
+                </tr>
+                <tr>
+                    <td class="editable-element" data-type="text">Finitrice</td>
+                    <td class="editable-element" data-type="text">Stesa asfalto</td>
+                    <td class="editable-element" data-type="text">Specializzato</td>
+                </tr>
+            </table>
+            
+            <h4>📋 Verifiche e Manutenzioni</h4>
+            <p class="editable-element" data-type="text">Tutte le attrezzature sono soggette a verifiche periodiche secondo il programma di manutenzione aziendale e le disposizioni del costruttore. I libretti di uso e manutenzione sono sempre disponibili in cantiere.</p>
+        </div>
+        
+        ${generateFooter(10)}
+    `;
+}
+
+function generatePPEPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">9. DISPOSITIVI DI PROTEZIONE INDIVIDUALE</h2>
+        </div>
+        
+        <div class="ppe-content">
+            <h4>🦺 DPI Obbligatori per Tutti</h4>
+            <table class="risk-table">
+                <tr><th>DPI</th><th>NORMA</th><th>QUANDO UTILIZZARE</th></tr>
+                <tr>
+                    <td>🔨 <strong>Casco di protezione</strong></td>
+                    <td class="editable-element" data-type="text">EN 397</td>
+                    <td class="editable-element" data-type="text">Sempre in cantiere</td>
+                </tr>
+                <tr>
+                    <td>👟 <strong>Calzature di sicurezza S3</strong></td>
+                    <td class="editable-element" data-type="text">EN ISO 20345</td>
+                    <td class="editable-element" data-type="text">Sempre in cantiere</td>
+                </tr>
+                <tr>
+                    <td>🦺 <strong>Giubbotto alta visibilità</strong></td>
+                    <td class="editable-element" data-type="text">EN ISO 20471</td>// Variabili globali
+let currentPage = 1;
+let totalPages = 29;
+let editMode = false;
+let selectedElement = null;
+let formData = {
+    committente: '',
+    indirizzoCantiere: '',
+    descrizioneLavori: '',
+    dataInizio: '',
+    dataFine: '',
+    durataLavori: '',
+    numeroOperatori: '',
+    tipologiaLavori: 'Asfaltature',
+    logoUrl: '',
+    firmaUrl: ''
+};
+
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('datainiziolavori').valueAsDate = new Date();
-    updatePreview();
-    updateProgress();
-    updateNavigationButtons();
+    initializeApp();
 });
 
-// Gestione steps
-function toggleStep(stepNumber) {
-    document.querySelectorAll('.step').forEach(step => {
-        step.classList.remove('active');
-    });
-    document.querySelector(`[data-step="${stepNumber}"]`).classList.add('active');
-    currentStep = stepNumber;
-    updateProgress();
+function initializeApp() {
+    setupEventListeners();
+    updatePageContent();
+    updateNavigationButtons();
+    loadSavedFormat();
 }
 
-function nextStep() {
-    if (currentStep < 5) {
-        toggleStep(currentStep + 1);
-    }
-}
-
-function prevStep() {
-    if (currentStep > 1) {
-        toggleStep(currentStep - 1);
-    }
-}
-
-function updateProgress() {
-    const progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        const progress = (currentStep / 5) * 100;
-        progressBar.style.width = progress + '%';
-    }
-}
-
-// Gestione zoom
-function zoomIn() {
-    currentZoom = Math.min(currentZoom + 25, 200);
-    updateZoom();
-}
-
-function zoomOut() {
-    currentZoom = Math.max(currentZoom - 25, 50);
-    updateZoom();
-}
-
-function updateZoom() {
-    const zoomLevelElement = document.getElementById('zoomLevel');
-    const documentPreview = document.getElementById('documentPreview');
+function setupEventListeners() {
+    // Navigation buttons
+    document.getElementById('prevPageBtn').addEventListener('click', previousPage);
+    document.getElementById('nextPageBtn').addEventListener('click', nextPage);
+    document.getElementById('pageSelect').addEventListener('change', goToPage);
     
-    if (zoomLevelElement) {
-        zoomLevelElement.textContent = currentZoom + '%';
-    }
-    if (documentPreview) {
-        documentPreview.style.transform = `scale(${currentZoom / 100})`;
-    }
-}
-
-// Gestione upload immagini
-function handleLogoUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            uploadedLogo = e.target.result;
-            const preview = document.getElementById('logoPreview');
-            if (preview) {
-                preview.innerHTML = `<img src="${uploadedLogo}" class="uploaded-image" alt="Logo">`;
-            }
-            updatePreview();
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-function handleFirmaUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            uploadedFirma = e.target.result;
-            const preview = document.getElementById('firmaPreview');
-            if (preview) {
-                preview.innerHTML = `<img src="${uploadedFirma}" class="uploaded-image" alt="Firma">`;
-            }
-            updatePreview();
-            updateFirmaDisplay();
-        };
-        reader.readAsDataURL(file);
-    }
-}
-
-// Gestione navigazione pagine
-function previousPage() {
-    const pageSelect = document.getElementById('pageSelect');
-    if (pageSelect) {
-        const currentPage = parseInt(pageSelect.value);
-        if (currentPage > 1) {
-            pageSelect.value = (currentPage - 1).toString();
-            updatePagePreview();
+    // Zoom control
+    document.getElementById('zoomSlider').addEventListener('input', updateZoom);
+    
+    // Form inputs
+    const formInputs = ['committente', 'indirizzoCantiere', 'descrizioneLavori', 'dataInizio', 'dataFine', 'durataLavori', 'numeroOperatori', 'tipologiaLavori'];
+    formInputs.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('input', updateFormData);
         }
+    });
+    
+    // File uploads
+    setupFileUpload('logoFile', 'logoPreview', 'logo');
+    setupFileUpload('firmaFile', 'firmaPreview', 'firma');
+    
+    // Step navigation
+    document.querySelectorAll('.step-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const step = this.dataset.step;
+            showStep(step);
+        });
+    });
+    
+    // Toolbar buttons
+    document.getElementById('addTextBtn').addEventListener('click', addTextElement);
+    document.getElementById('addImageBtn').addEventListener('click', showImageUploadModal);
+    document.getElementById('addTableBtn').addEventListener('click', addTableElement);
+    document.getElementById('addHeaderBtn').addEventListener('click', addHeaderElement);
+    document.getElementById('addBoxBtn').addEventListener('click', addBoxElement);
+    document.getElementById('editModeBtn').addEventListener('click', toggleEditMode);
+    
+    // Main buttons
+    document.getElementById('saveFormatBtn').addEventListener('click', saveFormat);
+    document.getElementById('previewBtn').addEventListener('click', showPreview);
+    document.getElementById('generatePdfBtn').addEventListener('click', generatePDF);
+    
+    // Modal buttons
+    document.getElementById('saveTextBtn').addEventListener('click', saveTextEdit);
+    document.getElementById('cancelTextBtn').addEventListener('click', closeTextEditModal);
+    document.getElementById('addImageConfirmBtn').addEventListener('click', addImageFromModal);
+    document.getElementById('cancelImageBtn').addEventListener('click', closeImageUploadModal);
+    
+    // Properties panel
+    document.getElementById('applyPropertiesBtn').addEventListener('click', applyProperties);
+    document.getElementById('deleteElementBtn').addEventListener('click', deleteSelectedElement);
+}
+
+// Navigation functions
+function previousPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        updatePageContent();
+        updateNavigationButtons();
+        document.getElementById('pageSelect').value = currentPage;
     }
 }
 
 function nextPage() {
-    const pageSelect = document.getElementById('pageSelect');
-    if (pageSelect) {
-        const currentPage = parseInt(pageSelect.value);
-        if (currentPage < 29) {
-            pageSelect.value = (currentPage + 1).toString();
-            updatePagePreview();
-        }
+    if (currentPage < totalPages) {
+        currentPage++;
+        updatePageContent();
+        updateNavigationButtons();
+        document.getElementById('pageSelect').value = currentPage;
     }
+}
+
+function goToPage() {
+    const selectedPage = parseInt(document.getElementById('pageSelect').value);
+    currentPage = selectedPage;
+    updatePageContent();
+    updateNavigationButtons();
 }
 
 function updateNavigationButtons() {
-    const pageSelect = document.getElementById('pageSelect');
     const prevBtn = document.getElementById('prevPageBtn');
     const nextBtn = document.getElementById('nextPageBtn');
-    
-    if (pageSelect && prevBtn && nextBtn) {
-        const currentPage = parseInt(pageSelect.value);
-        
-        prevBtn.disabled = currentPage === 1;
-        nextBtn.disabled = currentPage === 29;
-    }
-}
-
-// Aggiornamento preview
-function updatePreview() {
-    const data = getFormData();
-    updateVariableSummary(data);
-    updatePagePreview();
-    updateLogoDisplay();
-    updateFirmaDisplay();
-    updateClienteDisplay();
-}
-
-function getFormData() {
-    return {
-        intestazioneCliente: document.getElementById('intestazioneCliente').value || 'Nome Cliente',
-        indirizzocliente: document.getElementById('indirizzocliente').value || 'Indirizzo Cliente',
-        paesecantiere: document.getElementById('paesecantiere').value || 'Località Cantiere',
-        indirizzocantiere: document.getElementById('indirizzocantiere').value || 'Indirizzo Cantiere',
-        datainiziolavori: document.getElementById('datainiziolavori').value || new Date().toISOString().split('T')[0],
-        duratalavori: document.getElementById('duratalavori').value || '5',
-        prodottotest1: document.getElementById('prodottotest1').value || 'Lavorazione 1',
-        prodottotest2: document.getElementById('prodottotest2').value || 'Lavorazione 2',
-        customNotes: document.getElementById('customNotes').value || '',
-        fileName: document.getElementById('fileName').value || 'POS_Documento'
-    };
-}
-
-function updateVariableSummary(data) {
-    const summaryElement = document.getElementById('variableSummary');
-    if (summaryElement) {
-        const summary = `
-            Cliente: ${data.intestazioneCliente}<br>
-            Cantiere: ${data.paesecantiere}<br>
-            Inizio Lavori: ${data.datainiziolavori}<br>
-            Durata: ${data.duratalavori} giorni<br>
-            Lavorazioni: ${data.prodottotest1}, ${data.prodottotest2}
-        `;
-        summaryElement.innerHTML = summary;
-    }
-}
-
-function updateLogoDisplay() {
-    const logoDisplay = document.getElementById('logoDisplay');
-    if (logoDisplay) {
-        if (uploadedLogo) {
-            logoDisplay.innerHTML = `<img src="${uploadedLogo}" style="max-width: 180px; max-height: 120px; object-fit: contain; display: block; margin: 20px auto;" alt="Logo Rapida Asfalti">`;
-            logoDisplay.style.width = 'auto';
-            logoDisplay.style.height = 'auto';
-            logoDisplay.style.background = 'none';
-            logoDisplay.style.color = 'inherit';
-        } else {
-            logoDisplay.innerHTML = 'Rapida Asfalti Srl<br>LOGO';
-            logoDisplay.style.width = '180px';
-            logoDisplay.style.height = '120px';
-            logoDisplay.style.background = 'linear-gradient(135deg, #1e3a8a, #3b82f6)';
-            logoDisplay.style.color = 'white';
-            logoDisplay.style.display = 'flex';
-            logoDisplay.style.alignItems = 'center';
-            logoDisplay.style.justifyContent = 'center';
-            logoDisplay.style.margin = '20px auto';
-            logoDisplay.style.borderRadius = '8px';
-            logoDisplay.style.fontWeight = 'bold';
-            logoDisplay.style.fontSize = '16px';
-            logoDisplay.style.textAlign = 'center';
-        }
-    }
-}
-
-function updateFirmaDisplay() {
-    const firmaDisplay = document.getElementById('firmaDisplay');
-    if (firmaDisplay) {
-        if (uploadedFirma) {
-            firmaDisplay.innerHTML = `<img src="${uploadedFirma}" style="max-width: 160px; max-height: 60px; object-fit: contain; margin-left: auto; display: block;" alt="Firma Rapida Asfalti">`;
-        } else {
-            firmaDisplay.innerHTML = '';
-        }
-    }
-}
-
-function updateClienteDisplay() {
-    const clientePreview = document.getElementById('clientePreview');
-    if (clientePreview) {
-        const data = getFormData();
-        clientePreview.innerHTML = `
-            <div><strong>${data.intestazioneCliente}</strong></div>
-            <div>${data.indirizzocliente}</div>
-        `;
-    }
-}
-
-function updatePagePreview() {
-    const pageSelect = document.getElementById('pageSelect');
     const currentPageNum = document.getElementById('currentPageNum');
-    const footerPageNum = document.getElementById('footerPageNum');
-    const currentPageDisplay = document.getElementById('currentPageDisplay');
-    const pageContent = document.getElementById('pageContent');
     
-    if (!pageSelect || !currentPageNum || !pageContent) {
-        return;
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+    currentPageNum.textContent = currentPage;
+}
+
+function updateZoom() {
+    const zoomValue = document.getElementById('zoomSlider').value;
+    const documentPage = document.getElementById('documentPage');
+    document.getElementById('zoomValue').textContent = zoomValue + '%';
+    documentPage.style.transform = `scale(${zoomValue / 100})`;
+}
+
+// Form handling
+function updateFormData() {
+    formData.committente = document.getElementById('committente').value;
+    formData.indirizzoCantiere = document.getElementById('indirizzoCantiere').value;
+    formData.descrizioneLavori = document.getElementById('descrizioneLavori').value;
+    formData.dataInizio = document.getElementById('dataInizio').value;
+    formData.dataFine = document.getElementById('dataFine').value;
+    formData.durataLavori = document.getElementById('durataLavori').value;
+    formData.numeroOperatori = document.getElementById('numeroOperatori').value;
+    formData.tipologiaLavori = document.getElementById('tipologiaLavori').value;
+    
+    updatePageContent();
+}
+
+function showStep(stepNumber) {
+    // Hide all steps
+    document.querySelectorAll('.form-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Show selected step
+    document.getElementById(`step${stepNumber}`).classList.add('active');
+    
+    // Update step buttons
+    document.querySelectorAll('.step-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`[data-step="${stepNumber}"]`).classList.add('active');
+}
+
+// File upload handling
+function setupFileUpload(inputId, previewId, type) {
+    const input = document.getElementById(inputId);
+    const preview = document.getElementById(previewId);
+    const uploadArea = input.parentElement;
+    
+    input.addEventListener('change', function(e) {
+        handleFileUpload(e.target.files[0], preview, type);
+    });
+    
+    // Drag and drop
+    uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        uploadArea.classList.add('dragover');
+    });
+    
+    uploadArea.addEventListener('dragleave', function() {
+        uploadArea.classList.remove('dragover');
+    });
+    
+    uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault();
+        uploadArea.classList.remove('dragover');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) {
+            handleFileUpload(file, preview, type);
+        }
+    });
+}
+
+function handleFileUpload(file, previewElement, type) {
+    if (!file || !file.type.startsWith('image/')) return;
+    
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = type;
+        
+        previewElement.innerHTML = '';
+        previewElement.appendChild(img);
+        
+        if (type === 'logo') {
+            formData.logoUrl = e.target.result;
+        } else if (type === 'firma') {
+            formData.firmaUrl = e.target.result;
+        }
+        
+        updatePageContent();
+    };
+    reader.readAsDataURL(file);
+}
+
+// Page content generation
+function updatePageContent() {
+    const documentPage = document.getElementById('documentPage');
+    const content = generatePageContent(currentPage);
+    documentPage.innerHTML = content;
+    
+    if (editMode) {
+        makeElementsEditable();
     }
-    
-    const pageNum = pageSelect.value;
-    const data = getFormData();
-    currentPageNum.textContent = pageNum;
-    if (footerPageNum) {
-        footerPageNum.textContent = pageNum;
-    }
-    if (currentPageDisplay) {
-        currentPageDisplay.textContent = pageNum;
-    }
-    
-    updateNavigationButtons();
-    
-    // Genera il contenuto per ogni pagina
+}
+
+function generatePageContent(pageNum) {
     switch(pageNum) {
-        case '1':
-            pageContent.innerHTML = generatePage1Preview(data);
-            break;
-        case '2':
-            pageContent.innerHTML = generatePage2Preview();
-            break;
-        case '3':
-            pageContent.innerHTML = generatePage3Preview();
-            break;
-        case '4':
-            pageContent.innerHTML = generatePage4Preview(data);
-            break;
-        case '5':
-            pageContent.innerHTML = generatePage5Preview();
-            break;
-        case '18':
-            pageContent.innerHTML = generatePage18Preview();
-            break;
-        case '24':
-            pageContent.innerHTML = generatePage24Preview();
-            break;
-        default:
-            pageContent.innerHTML = `
-                <div class="document-title">Pagina ${pageNum}</div>
-                <p>Contenuto della pagina ${pageNum} del POS - Layout professionale conforme al modello originale.</p>
-                <div class="section-header">Sezione ${pageNum}</div>
-                <p>Questa pagina contiene informazioni specifiche relative alla sezione ${pageNum} del Piano Operativo di Sicurezza secondo il D.Lgs. 81/2008.</p>
-            `;
+        case 1: return generateCoverPage();
+        case 2: return generateIndexPage();
+        case 3: return generateDefinitionsPage();
+        case 4: return generateSiteDataPage();
+        case 5: return generateRolesPage();
+        case 6: return generateOrganizationPage();
+        case 7: return generateActivitiesPage();
+        case 8: return generateModalitiesPage();
+        case 9: return generateServicesPage();
+        case 10: return generateEquipmentPage();
+        case 11: return generatePPEPage();
+        case 12: return generateTrainingPage();
+        case 13: return generateHealthSurveillancePage();
+        case 14: return generateEmergencyPage();
+        case 15: return generateSignagePage();
+        case 16: return generateInterferencePage();
+        case 17: return generateSchedulePage();
+        case 18: return generateRiskAssessment1Page();
+        case 19: return generateRiskAssessment2Page();
+        case 20: return generateRiskAssessment3Page();
+        case 21: return generateRiskAssessment4Page();
+        case 22: return generateRiskAssessment5Page();
+        case 23: return generateEquipmentSheetsPage();
+        case 24: return generateGasCylinderPage();
+        case 25: return generateMixerPage();
+        case 26: return generateCompressorPage();
+        case 27: return generateExcavatorPage();
+        case 28: return generateCranePage();
+        case 29: return generateFinalPage();
+        default: return generateCoverPage();
     }
 }
 
-// Funzioni per generare preview delle pagine
-function generatePage1Preview(data) {
-    const logoHtml = uploadedLogo ? 
-        `<img src="${uploadedLogo}" style="max-width: 180px; max-height: 120px; object-fit: contain; display: block; margin: 20px auto;" alt="Logo">` :
-        `<div class="logo-preview">Rapida Asfalti Srl<br>LOGO</div>`;
-        
-    const firmaHtml = uploadedFirma ? 
-        `<div style="margin-top: 15px; text-align: right;"><img src="${uploadedFirma}" style="max-width: 160px; max-height: 60px; object-fit: contain; margin-left: auto; display: block;" alt="Firma"></div>` :
-        '';
-        
+function generateCoverPage() {
     return `
-        <div class="document-title">PIANO OPERATIVO di SICUREZZA (P.O.S.)</div>
-        <div style="text-align: center; font-style: italic; margin: 10px 0;">
-            (ai sensi del D.Lgs. 9 aprile 2008, n. 81 e s.m.i.)
+        <div class="pos-header">
+            ${formData.logoUrl ? `<div class="logo-container">
+                <img src="${formData.logoUrl}" alt="Logo" class="logo-display">
+            </div>` : ''}
+            <h1 class="pos-title editable-element" data-type="text">PIANO OPERATIVO DI SICUREZZA</h1>
+            <p class="pos-subtitle editable-element" data-type="text">ai sensi del D.Lgs. 81/2008 - Art. 96 lett. g) e Allegato XV</p>
         </div>
         
-        ${logoHtml}
-        
-        <div style="border: 2px solid #1e3a8a; padding: 20px; margin: 30px 0; text-align: center;">
-            <h2 style="margin: 10px 0;">PIANO OPERATIVO di SICUREZZA</h2>
-            <h3 style="margin: 10px 0;">(P.O.S.)</h3>
-            <div style="font-style: italic;">(ai sensi del D.Lgs. 9 aprile 2008, n. 81 e s.m.i.)</div>
-        </div>
-        
-        <div style="display: flex; justify-content: space-between; margin: 30px 0;">
-            <div style="border: 2px solid #1e3a8a; padding: 15px; width: 45%;">
-                <h4 style="margin: 0 0 10px 0;">Committente:</h4>
-                <div><strong>${data.intestazioneCliente}</strong></div>
-                <div>${data.indirizzocliente}</div>
-            </div>
-            <div style="border: 2px solid #1e3a8a; padding: 15px; width: 45%;">
-                <h4 style="margin: 0 0 10px 0;">L'Impresa:</h4>
-                <div><strong>RAPIDA ASFALTI SRL</strong></div>
-                <div>VIA PADRE LEOPOLDO, 67/D</div>
-                <div>36016 THIENE (VI)</div>
-                <div>P.IVA 03996820241</div>
-                ${firmaHtml}
-            </div>
-        </div>
-    `;
-}
-
-function generatePage2Preview() {
-    return `
-        <div class="document-title">INDICE</div>
-        
-        <div style="line-height: 1.6; font-size: 12px;">
-            <div><strong>1</strong> DATI GENERALI DEL CANTIERE ......................................................................................... 4</div>
-            <div><strong>2</strong> DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE ............................................................ 4</div>
-            <div><strong>3</strong> SPECIFICHE MANSIONI INERENTI LA SICUREZZA - ORGANIZZAZIONE DELL'AZIENDA ............ 5</div>
-            <div><strong>4</strong> DESCRIZIONE DELL'ATTIVITÀ DI CANTIERE ...................................................................... 7</div>
-            <div><strong>5</strong> DESCRIZIONE DELLE MODALITÀ ORGANIZZATIVE ......................................................... 8</div>
-            <div><strong>6</strong> ELENCO DEI PONTEGGI, DELLE MACCHINE, ATTREZZATURE ED IMPIANTI ........................ 10</div>
-            <div><strong>7</strong> ELENCO DELLE SOSTANZE E PREPARATI PERICOLOSI .................................................... 11</div>
-            <div><strong>8</strong> ESITI DEI RAPPORTI DI VALUTAZIONE DEL RUMORE E DELLE VIBRAZIONI ......................... 13</div>
-            <div><strong>9</strong> MACROCLIMA ............................................................................................................... 14</div>
-            <div><strong>10</strong> PROCEDURE COMPLEMENTARI E DI DETTAGLIO RICHIESTE DAL PSC ............................ 15</div>
-            <div><strong>11</strong> DOCUMENTAZIONE FORMAZIONE FORNITE AI LAVORATORI ........................................ 16</div>
-            <div><strong>12</strong> FORMAZIONE DIPENDENTI ............................................................................................ 17</div>
-            <div><strong>13</strong> VALUTAZIONE DEI RISCHI DEL CANTIERE ...................................................................... 18</div>
-            <div><strong>14</strong> ATTREZZATURE PER ESEGUIRE IL LAVORO ................................................................... 24</div>
-        </div>
-    `;
-}
-
-function generatePage3Preview() {
-    return `
-        <div class="document-title">DEFINIZIONI ED ABBREVIAZIONI</div>
-        
-        <div style="margin: 20px 0;">
-            <h4>Direttore tecnico di cantiere:</h4>
-            <p>Figura incaricata della gestione del cantiere, compresa la sicurezza. Può essere un Legale Rappresentante o un dipendente della ditta appaltatrice.</p>
-            
-            <h4>Capocantiere / Preposto:</h4>
-            <p>Persona che, in ragione delle competenze professionali e nei limiti di poteri gerarchici e funzionali adeguati alla natura dell'incarico conferitogli, sovrintende all'attività lavorativa.</p>
-            
-            <h4>RSPP:</h4>
-            <p>Responsabile del servizio di prevenzione e protezione.</p>
-            
-            <h4>PSC:</h4>
-            <p>Piano di sicurezza e di coordinamento di cui all'articolo 100, comma 1 del D.Lgs. 81/2008 e s.m.i.</p>
-            
-            <h4>CSE:</h4>
-            <p>Coordinatore per la sicurezza in fase di esecuzione.</p>
-            
-            <h4>IMPRESA ESECUTRICE:</h4>
-            <p>Impresa che esegue un'opera o parte di essa impegnando proprie risorse umane e materiali.</p>
-        </div>
-    `;
-}
-
-function generatePage4Preview(data) {
-    return `
-        <div class="section-header">1 DATI GENERALI DEL CANTIERE</div>
-        <table class="content-table">
-            <tr>
-                <td style="background: #f0f0f0; width: 30%;"><strong>Indirizzo di cantiere</strong></td>
-                <td>${data.paesecantiere}<br>${data.indirizzocantiere}</td>
-            </tr>
-            <tr>
-                <td style="background: #f0f0f0;"><strong>Eventuali recapiti</strong></td>
-                <td></td>
-            </tr>
-        </table>
-        
-        <div class="section-header">2 DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE</div>
-        <table class="content-table">
-            <tr>
-                <td style="background: #f0f0f0; width: 30%;"><strong>Denominazione</strong></td>
-                <td><strong>RAPIDA ASFALTI SRL</strong></td>
-            </tr>
-            <tr>
-                <td style="background: #f0f0f0;"><strong>Indirizzo</strong></td>
-                <td>Via Padre Leopoldo 67/d<br>36016 Thiene (VI)</td>
-            </tr>
-            <tr>
-                <td style="background: #f0f0f0;"><strong>Tel</strong></td>
-                <td>0445 386059</td>
-            </tr>
-            <tr>
-                <td style="background: #f0f0f0;"><strong>Datore di Lavoro</strong></td>
-                <td>Gallato Silvio</td>
-            </tr>
-            <tr>
-                <td style="background: #f0f0f0;"><strong>Incarico ricevuto da:</strong></td>
-                <td>${data.intestazioneCliente}<br>${data.indirizzocliente}</td>
-            </tr>
-        </table>
-    `;
-}
-
-function generatePage5Preview() {
-    return `
-        <div class="section-header">3 SPECIFICHE MANSIONI INERENTI LA SICUREZZA</div>
-        
-        <h4>Elenco dei lavoratori dell'impresa esecutrice presenti in cantiere:</h4>
-        <table class="content-table">
-            <tr><th>Nome</th><th>Qualifica/Mansione</th></tr>
-            <tr><td>Josic Tatomir</td><td>Operaio specializzato</td></tr>
-            <tr><td>Bojan Stanic</td><td>Operaio specializzato</td></tr>
-            <tr><td>Zoran Stanic</td><td>Operaio specializzato</td></tr>
-            <tr><td>Gallato Silvio</td><td>Datore di lavoro</td></tr>
-            <tr><td><strong>TOTALE N. 10</strong></td><td></td></tr>
-        </table>
-        
-        <h4>SOGGETTI RESPONSABILI PER LA SICUREZZA DEL PRESENTE CANTIERE</h4>
-        <table class="content-table">
-            <tr>
-                <td><strong>RSPP</strong></td>
-                <td>Gallato Silvio</td>
-            </tr>
-            <tr>
-                <td><strong>Addetti Primo Soccorso</strong></td>
-                <td>Tatomir Josic, Stanic Bojan, Gallato Silvio</td>
-            </tr>
-            <tr>
-                <td><strong>Addetti Antincendio</strong></td>
-                <td>Tatomir Josic, Stanic Bojan, Gallato Silvio</td>
-            </tr>
-        </table>
-    `;
-}
-
-function generatePage18Preview() {
-    return `
-        <div class="section-header">12 VALUTAZIONE DEI RISCHI DEL CANTIERE</div>
-        
-        <h4>METODOLOGIA E CRITERI</h4>
-        <p>Per ogni lavorazione vengono individuati i relativi pericoli connessi con le lavorazioni stesse, le attrezzature impiegate e le eventuali sostanze utilizzate.</p>
-        
-        <h4>FASE 1: ARRIVO AL CANTIERE CON MEZZI DELL'IMPRESA</h4>
-        <table class="content-table">
-            <tr style="background: #00ffff;">
-                <th>RISCHIO</th>
-                <th>VALUTAZIONE</th>
-                <th>MISURE PREVENTIVE</th>
-            </tr>
-            <tr>
-                <td>Possibili investimenti di terze persone</td>
-                <td><strong>BASSO</strong></td>
-                <td>Le manovre svolte all'interno del cantiere e/o della proprietà del Cliente saranno effettuate a passo d'uomo</td>
-            </tr>
-        </table>
-    `;
-}
-
-function generatePage24Preview() {
-    return `
-        <div class="section-header">13 ATTREZZATURE PER ESEGUIRE IL LAVORO</div>
-        
-        <div class="equipment-section">
-            <div class="equipment-title">
-                <span>BOMBOLA GAS PROPANO E BRUCIATORE</span>
-                <span class="present-checkbox">PRESENTE: SI ☑ NO ☐</span>
+        <div class="company-info">
+            <div class="company-box">
+                <h3>IL COMMITTENTE:</h3>
+                <p class="editable-element" data-type="text">${formData.committente || 'Nome Committente'}</p>
+                <p class="editable-element" data-type="text">${formData.indirizzoCantiere || 'Indirizzo Cantiere'}</p>
             </div>
             
-            <h4>GENERALE:</h4>
-            <ul>
-                <li>Bombole gas in uso dalle ditte di imbottigliamento Liquidgas o Gas Adige</li>
-                <li>Bruciatori di proprietà</li>
-            </ul>
+            <div class="company-box">
+                <h3>L'IMPRESA:</h3>
+                <p><strong>RAPIDA ASFALTI SRL</strong></p>
+                <p>VIA PADRE LEOPOLDO, 67/D</p>
+                <p>36016 THIENE (VI)</p>
+                <p>P.IVA 03996820241</p>
+                ${formData.firmaUrl ? `<img src="${formData.firmaUrl}" alt="Firma" class="firma-display">` : ''}
+            </div>
+        </div>
+        
+        <div class="work-info">
+            <h3>DESCRIZIONE LAVORI:</h3>
+            <p class="editable-element" data-type="text">${formData.descrizioneLavori || 'Descrizione dei lavori da eseguire'}</p>
             
-            <h4>RISCHI:</h4>
-            <table class="content-table" style="width: 60%;">
+            <div style="margin-top: 2rem;">
+                <p><strong>Data Inizio:</strong> <span class="editable-element" data-type="text">${formData.dataInizio || 'dd/mm/yyyy'}</span></p>
+                <p><strong>Data Fine:</strong> <span class="editable-element" data-type="text">${formData.dataFine || 'dd/mm/yyyy'}</span></p>
+                <p><strong>Durata:</strong> <span class="editable-element" data-type="text">${formData.durataLavori || '15'} giorni</span></p>
+            </div>
+        </div>
+        
+        ${generateFooter(1)}
+    `;
+}
+
+function generateIndexPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">INDICE</h2>
+        </div>
+        
+        <div class="index-content">
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>1. DEFINIZIONI ED ABBREVIAZIONI</strong></td><td style="text-align: right; padding: 0.5rem;">3</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>2. DATI DEL CANTIERE</strong></td><td style="text-align: right; padding: 0.5rem;">4</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>3. MANSIONI</strong></td><td style="text-align: right; padding: 0.5rem;">5</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>4. ORGANIZZAZIONE AZIENDALE</strong></td><td style="text-align: right; padding: 0.5rem;">6</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>5. ATTIVITÀ DEL CANTIERE</strong></td><td style="text-align: right; padding: 0.5rem;">7</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>6. MODALITÀ ORGANIZZATIVE</strong></td><td style="text-align: right; padding: 0.5rem;">8</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>7. SERVIZI IGIENICO ASSISTENZIALI</strong></td><td style="text-align: right; padding: 0.5rem;">9</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>8. ATTREZZATURE</strong></td><td style="text-align: right; padding: 0.5rem;">10</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>9. DISPOSITIVI DI PROTEZIONE INDIVIDUALE</strong></td><td style="text-align: right; padding: 0.5rem;">11</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>10. FORMAZIONE E INFORMAZIONE</strong></td><td style="text-align: right; padding: 0.5rem;">12</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>11. SORVEGLIANZA SANITARIA</strong></td><td style="text-align: right; padding: 0.5rem;">13</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>12. GESTIONE DELLE EMERGENZE</strong></td><td style="text-align: right; padding: 0.5rem;">14</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>13. SEGNALETICA DI CANTIERE</strong></td><td style="text-align: right; padding: 0.5rem;">15</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>14. INTERFERENZE</strong></td><td style="text-align: right; padding: 0.5rem;">16</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>15. CRONOPROGRAMMA</strong></td><td style="text-align: right; padding: 0.5rem;">17</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>16. VALUTAZIONE DEI RISCHI</strong></td><td style="text-align: right; padding: 0.5rem;">18</td></tr>
+                <tr><td style="padding: 0.5rem; border-bottom: 1px solid #ddd;"><strong>17. SCHEDE TECNICHE ATTREZZATURE</strong></td><td style="text-align: right; padding: 0.5rem;">23</td></tr>
+            </table>
+        </div>
+        
+        ${generateFooter(2)}
+    `;
+}
+
+function generateDefinitionsPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">1. DEFINIZIONI ED ABBREVIAZIONI</h2>
+        </div>
+        
+        <div class="definitions-content">
+            <div class="definition-item">
+                <h4>📋 POS - Piano Operativo di Sicurezza</h4>
+                <p class="editable-element" data-type="text">Documento complementare del PSC per le imprese esecutrici ai sensi dell'art. 96 del D.Lgs. 81/2008.</p>
+            </div>
+            
+            <div class="definition-item">
+                <h4>🏗️ PSC - Piano di Sicurezza e Coordinamento</h4>
+                <p class="editable-element" data-type="text">Piano redatto dal coordinatore per la progettazione ai sensi dell'art. 100 del D.Lgs. 81/2008.</p>
+            </div>
+            
+            <div class="definition-item">
+                <h4>👷 DPI - Dispositivi di Protezione Individuale</h4>
+                <p class="editable-element" data-type="text">Attrezzature destinate ad essere indossate e tenute dal lavoratore per proteggerlo contro uno o più rischi.</p>
+            </div>
+            
+            <div class="definition-item">
+                <h4>⚠️ DVR - Documento di Valutazione dei Rischi</h4>
+                <p class="editable-element" data-type="text">Documento obbligatorio che deve essere elaborato dal datore di lavoro in tutte le aziende.</p>
+            </div>
+            
+            <div class="definition-item">
+                <h4>🚨 RSPP - Responsabile del Servizio di Prevenzione e Protezione</h4>
+                <p class="editable-element" data-type="text">Persona in possesso delle capacità e dei requisiti professionali di cui all'articolo 32.</p>
+            </div>
+            
+            <div class="definition-item">
+                <h4>⚕️ MC - Medico Competente</h4>
+                <p class="editable-element" data-type="text">Medico in possesso di uno dei titoli e dei requisiti formativi e professionali di cui all'articolo 38.</p>
+            </div>
+        </div>
+        
+        ${generateFooter(3)}
+    `;
+}
+
+function generateSiteDataPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">2. DATI DEL CANTIERE</h2>
+        </div>
+        
+        <div class="site-data-content">
+            <table class="risk-table">
                 <tr>
-                    <td>Calore fiamme</td>
-                    <td style="text-align: center; font-size: 20px;">🔥</td>
+                    <th style="width: 30%;">DESCRIZIONE</th>
+                    <th>DETTAGLI</th>
                 </tr>
                 <tr>
-                    <td>Gas Vapori</td>
-                    <td style="text-align: center; font-size: 20px;">☣️</td>
+                    <td><strong>Committente</strong></td>
+                    <td class="editable-element" data-type="text">${formData.committente || 'Nome Committente'}</td>
                 </tr>
                 <tr>
-                    <td>Incendio Scoppio</td>
-                    <td style="text-align: center; font-size: 20px;">💥</td>
+                    <td><strong>Indirizzo Cantiere</strong></td>
+                    <td class="editable-element" data-type="text">${formData.indirizzoCantiere || 'Indirizzo completo del cantiere'}</td>
                 </tr>
                 <tr>
-                    <td>Rumore</td>
-                    <td style="text-align: center; font-size: 20px;">🔊</td>
+                    <td><strong>Tipologia Lavori</strong></td>
+                    <td class="editable-element" data-type="text">${formData.tipologiaLavori || 'Asfaltature'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Inizio Lavori</strong></td>
+                    <td class="editable-element" data-type="text">${formData.dataInizio || 'dd/mm/yyyy'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Data Fine Lavori</strong></td>
+                    <td class="editable-element" data-type="text">${formData.dataFine || 'dd/mm/yyyy'}</td>
+                </tr>
+                <tr>
+                    <td><strong>Durata Prevista</strong></td>
+                    <td class="editable-element" data-type="text">${formData.durataLavori || '15'} giorni lavorativi</td>
+                </tr>
+                <tr>
+                    <td><strong>Numero Operatori</strong></td>
+                    <td class="editable-element" data-type="text">${formData.numeroOperatori || '5'} operatori</td>
+                </tr>
+                <tr>
+                    <td><strong>Coordinatore Sicurezza</strong></td>
+                    <td class="editable-element" data-type="text">Da definire secondo PSC</td>
                 </tr>
             </table>
             
-            <h4>PRIMA DI INIZIARE:</h4>
-            <ul>
-                <li>Verificare l'integrità dei tubi in gomma e le connessioni tra bombola e cannello</li>
-                <li>Verificare la funzionalità del riduttore di pressione</li>
-                <li>Verificare la stabilità delle bombole e del materiale sul piano di lavoro</li>
-            </ul>
-            
-            <h4>DPI IN RIFERIMENTO:</h4>
-            <div>👷 🦺 🥽 👤 🔇 😷</div>
+            <div style="margin-top: 2rem;">
+                <h4>📝 Descrizione dei Lavori</h4>
+                <p class="editable-element" data-type="text">${formData.descrizioneLavori || 'Descrizione dettagliata delle lavorazioni da eseguire nel cantiere, incluse le fasi operative e le modalità di intervento.'}</p>
+            </div>
         </div>
+        
+        ${generateFooter(4)}
     `;
 }
 
-// Generazione PDF
-function generateFinalPDF() {
-    const data = getFormData();
-    
-    // Verifica campi obbligatori
-    if (!data.intestazioneCliente.trim() || data.intestazioneCliente === 'Nome Cliente') {
-        showError('Il campo "Denominazione Cliente" è obbligatorio!');
-        return;
-    }
-    
-    if (!data.paesecantiere.trim() || data.paesecantiere === 'Località Cantiere') {
-        showError('Il campo "Località Cantiere" è obbligatorio!');
-        return;
-    }
-    
-    showProgress();
-    
-    try {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF('p', 'mm', 'a4');
+function generateRolesPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">3. MANSIONI</h2>
+        </div>
         
-        generateAllPages(doc, data);
-        
-        const fileName = `${data.fileName.replace(/[^a-zA-Z0-9]/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
-        doc.save(fileName);
-        
-        showSuccess();
-        
-    } catch (error) {
-        console.error('Errore generazione PDF:', error);
-        showError('Errore durante la generazione del PDF. Riprova.');
-    }
-}
-
-function generateAllPages(doc, data) {
-    // Pagina 1: Copertina
-    addHeaderFooter(doc, 1);
-    doc.setFontSize(18);
-    doc.text('PIANO OPERATIVO di SICUREZZA (P.O.S.)', 105, 40, { align: 'center' });
-    
-    if (uploadedLogo) {
-        doc.addImage(uploadedLogo, 'JPEG', 60, 60, 90, 60);
-    } else {
-        doc.setFillColor(30, 58, 138);
-        doc.rect(60, 60, 90, 60, 'F');
-        doc.setTextColor(255);
-        doc.setFontSize(16);
-        doc.text('RAPIDA ASFALTI SRL', 105, 85, { align: 'center' });
-        doc.text('LOGO', 105, 95, { align: 'center' });
-        doc.setTextColor(0);
-    }
-    
-    // Box committente e impresa
-    doc.rect(25, 180, 75, 60, 'D');
-    doc.setFontSize(11);
-    doc.setFont(undefined, 'bold');
-    doc.text('Committente:', 27, 190);
-    doc.setFont(undefined, 'normal');
-    doc.text(data.intestazioneCliente, 27, 200);
-    doc.text(data.indirizzocliente, 27, 208);
-    
-    doc.rect(110, 180, 75, 60, 'D');
-    doc.setFont(undefined, 'bold');
-    doc.text('L\'Impresa:', 112, 190);
-    doc.setFont(undefined, 'normal');
-    doc.text('RAPIDA ASFALTI SRL', 112, 200);
-    doc.text('VIA PADRE LEOPOLDO, 67/D', 112, 208);
-    doc.text('36016 THIENE (VI)', 112, 216);
-    doc.text('P.IVA 03996820241', 112, 224);
-    
-    if (uploadedFirma) {
-        doc.addImage(uploadedFirma, 'JPEG', 140, 228, 80, 30);
-    }
-    
-    // Aggiungi altre pagine...
-    for (let i = 2; i <= 29; i++) {
-        doc.addPage();
-        addHeaderFooter(doc, i);
-        doc.setFontSize(12);
-        doc.text(`Pagina ${i} - Contenuto del POS`, 105, 100, { align: 'center' });
-        doc.setFontSize(10);
-        doc.text('Layout professionale conforme al D.Lgs. 81/2008', 105, 120, { align: 'center' });
-    }
-}
-
-function addHeaderFooter(doc, pageNum) {
-    // Header in alto
-    doc.setFontSize(9);
-    doc.setTextColor(100);
-    doc.text('Revisione n. 2 | Data revisione 10/05/2022 | Impresa Rapida Asfalti Srl', 20, 15);
-    doc.text(`Pagina ${pageNum} di 29`, 170, 15);
-    
-    // Footer in basso
-    doc.text('Revisione n. 2 | Data revisione 10/05/2022 | Impresa Rapida Asfalti Srl', 20, 285);
-    doc.text(`Pagina ${pageNum} di 29`, 170, 285);
-    doc.setTextColor(0);
-}
-
-// Funzioni di utilità
-function showProgress() {
-    const progressBar = document.getElementById('progressBar');
-    if (progressBar) {
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += 10;
-            progressBar.style.width = progress + '%';
-            if (progress >= 100) {
-                clearInterval(interval);
-            }
-        }, 200);
-    }
-}
-
-function showSuccess() {
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
-    
-    if (successMessage) {
-        successMessage.style.display = 'block';
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
-    }
-    if (errorMessage) {
-        errorMessage.style.display = 'none';
-    }
-}
-
-function showError(message) {
-    const successMessage = document.getElementById('successMessage');
-    const errorMessage = document.getElementById('errorMessage');
-    
-    if (errorMessage) {
-        errorMessage.innerHTML = `❌ ${message}`;
-        errorMessage.style.display = 'block';
-        setTimeout(() => {
-            errorMessage.style.display = 'none';
-        }, 5000);
-    }
-    if (successMessage) {
-        successMessage.style.display = 'none';
-    }
-}
-
-// Drag & drop per file upload
-document.addEventListener('DOMContentLoaded', function() {
-    ['logoUpload', 'firmaUpload'].forEach(id => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                element.classList.add('dragover');
-            });
+        <div class="roles-content">
+            <table class="risk-table">
+                <tr>
+                    <th>MANSIONE</th>
+                    <th>DESCRIZIONE ATTIVITÀ</th>
+                    <th>COMPETENZE RICHIESTE</th>
+                </tr>
+                <tr>
+                    <td><strong>👷 Capo Cantiere</strong></td>
+                    <td class="editable-element" data-type="text">Coordinamento delle attività, controllo qualità, sicurezza operatori</td>
+                    <td class="editable-element" data-type="text">Esperienza cantiere, formazione sicurezza</td>
+                </tr>
+                <tr>
+                    <td><strong>🚛 Operatore Macchine</strong></td>
+                    <td class="editable-element" data-type="text">Conduzione escavatori, pale caricatrici, rulli compattatori</td>
+                    <td class="editable-element" data-type="text">Patentino macchine movimento terra</td>
+                </tr>
+                <tr>
+                    <td><strong>🔧 Operaio Specializzato</strong></td>
+                    <td class="editable-element" data-type="text">Asfaltature, preparazione materiali, finiture</td>
+                    <td class="editable-element" data-type="text">Esperienza asfaltature, uso attrezzature</td>
+                </tr>
+                <tr>
+                    <td><strong>👨‍🔧 Operaio Comune</strong></td>
+                    <td class="editable-element" data-type="text">Supporto alle lavorazioni, movimentazione materiali</td>
+                    <td class="editable-element" data-type="text">Formazione base sicurezza</td>
+                </tr>
+                <tr>
+                    <td><strong>🚚 Autista</strong></td>
+                    <td class="editable-element" data-type="text">Trasporto materiali, conferimento inerti</td>
+                    <td class="editable-element" data-type="text">Patente C+E, CQC merci</td>
+                </tr>
+            </table>
             
-            element.addEventListener('dragleave', () => {
-                element.classList.remove('dragover');
-            });
+            <div style="margin-top: 2rem;">
+                <h4>📋 Note Organizzative</h4>
+                <p class="editable-element" data-type="text">Ogni operatore deve essere in possesso della formazione specifica per la mansione svolta e dell'idoneità sanitaria rilasciata dal Medico Competente. Il personale deve utilizzare costantemente i DPI assegnati secondo le procedure aziendali.</p>
+            </div>
+        </div>
+        
+        ${generateFooter(5)}
+    `;
+}
+
+function generateOrganizationPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">4. ORGANIZZAZIONE AZIENDALE</h2>
+        </div>
+        
+        <div class="organization-content">
+            <h4>🏢 RAPIDA ASFALTI SRL</h4>
+            <div class="company-box" style="margin: 1rem 0;">
+                <p><strong>Sede Legale:</strong> Via Padre Leopoldo, 67/D - 36016 Thiene (VI)</p>
+                <p><strong>P.IVA:</strong> 03996820241</p>
+                <p><strong>Telefono:</strong> <span class="editable-element" data-type="text">0445 123456</span></p>
+                <p><strong>Email:</strong> <span class="editable-element" data-type="text">info@rapidaasfalti.it</span></p>
+            </div>
             
-            element.addEventListener('drop', (e) => {
-                e.preventDefault();
-                element.classList.remove('dragover');
-                
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    const fileInput = id === 'logoUpload' ? 'logoFile' : 'firmaFile';
-                    const input = document.getElementById(fileInput);
-                    if (input) {
-                        input.files = files;
-                        if (id === 'logoUpload') {
-                            handleLogoUpload({ target: { files } });
-                        } else {
-                            handleFirmaUpload({ target: { files } });
-                        }
-                    }
-                }
-            });
-        }
-    });
-});
+            <h4>👥 Organigramma Sicurezza</h4>
+            <table class="risk-table">
+                <tr>
+                    <th>RUOLO</th>
+                    <th>NOMINATIVO</th>
+                    <th>QUALIFICA</th>
+                </tr>
+                <tr>
+                    <td><strong>Datore di Lavoro</strong></td>
+                    <td class="editable-element" data-type="text">Da definire</td>
+                    <td>Legale Rappresentante</td>
+                </tr>
+                <tr>
+                    <td><strong>RSPP</strong></td>
+                    <td class="editable-element" data-type="text">Da definire</td>
+                    <td>Responsabile Servizio Prevenzione e Protezione</td>
+                </tr>
+                <tr>
+                    <td><strong>Medico Competente</strong></td>
+                    <td class="editable-element" data-type="text">Da definire</td>
+                    <td>Medico del Lavoro</td>
+                </tr>
+                <tr>
+                    <td><strong>RLS</strong></td>
+                    <td class="editable-element" data-type="text">Da definire</td>
+                    <td>Rappresentante Lavoratori per la Sicurezza</td>
+                </tr>
+                <tr>
+                    <td><strong>Preposto Cantiere</strong></td>
+                    <td class="editable-element" data-type="text">Da definire</td>
+                    <td>Capo Cantiere</td>
+                </tr>
+            </table>
+            
+            <div style="margin-top: 2rem;">
+                <h4>📋 Responsabilità</h4>
+                <p class="editable-element" data-type="text">L'organizzazione aziendale è strutturata secondo i requisiti del D.Lgs. 81/2008. Ogni figura ha compiti e responsabilità specifiche per garantire la sicurezza nei luoghi di lavoro e la corretta applicazione delle misure preventive.</p>
+            </div>
+        </div>
+        
+        ${generateFooter(6)}
+    `;
+}
+
+function generateRiskAssessment1Page() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">VALUTAZIONE RISCHI - FASI 1-2</h2>
+        </div>
+        
+        <h4>FASE 1: ALLESTIMENTO DEL CANTIERE</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>⚠️ Investimento da veicoli</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td class="editable-element" data-type="text">Segnaletica, giubbotti alta visibilità, moviere</td>
+            </tr>
+            <tr>
+                <td>🏗️ Caduta materiali dall'alto</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Controllo carichi, delimitazione aree</td>
+            </tr>
+            <tr>
+                <td>⚡ Elettrocuzione</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Quadri certificati, protezioni differenziali</td>
+            </tr>
+        </table>
+        
+        <h4>FASE 2: DEMOLIZIONE E SCARIFICA</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>💨 Inalazione polveri</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Maschere FFP2, bagnatura superfici</td>
+            </tr>
+            <tr>
+                <td>🔊 Rumore</td>
+                <td><span class="risk-level risk-alto">ALTA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td class="editable-element" data-type="text">Cuffie antirumore, rotazione operatori</td>
+            </tr>
+            <tr>
+                <td>🏗️ Ribaltamento macchine</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Verifiche stabilità, operatori qualificati</td>
+            </tr>
+        </table>
+        
+        ${generateFooter(18)}
+    `;
+}
+
+function generateRiskAssessment2Page() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">VALUTAZIONE RISCHI - FASI 3-5</h2>
+        </div>
+        
+        <h4>FASE 3: SCARICO DELLE ATTREZZATURE E/O DEI MATERIALI</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>🏗️ Caduta di carichi sospesi</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Controllo imbragature, delimitazione zone</td>
+            </tr>
+            <tr>
+                <td>🦶 Schiacciamento piedi</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Calzature antinfortunistiche S3</td>
+            </tr>
+        </table>
+        
+        <h4>FASE 4: REALIZZAZIONE DELLA CARPENTERIA</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>✂️ Tagli e abrasioni</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Guanti da lavoro, attenzione nell'uso utensili</td>
+            </tr>
+            <tr>
+                <td>🔨 Colpi e urti</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Casco di protezione, ordine nell'area lavoro</td>
+            </tr>
+        </table>
+        
+        <h4>FASE 5: GETTO IN CALCESTRUZZO</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>🧪 Contatto con sostanze chimiche</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Guanti impermeabili, lavaggio frequente</td>
+            </tr>
+            <tr>
+                <td>🏗️ Caduta in piano</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Pulizia percorsi, calzature antiscivolo</td>
+            </tr>
+        </table>
+        
+        ${generateFooter(19)}
+    `;
+}
+
+function generateRiskAssessment3Page() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">VALUTAZIONE RISCHI - FASI 6-8</h2>
+        </div>
+        
+        <h4>FASE 6: LAVORAZIONE E POSA FERRI</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>✂️ Punture e tagli</td>
+                <td><span class="risk-level risk-alto">ALTA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Guanti antitaglio, protezione punte ferro</td>
+            </tr>
+            <tr>
+                <td>🏗️ Caduta dall'alto</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Imbracature di sicurezza, parapetti</td>
+            </tr>
+        </table>
+        
+        <h4>FASE 7: MONTAGGIO ELEMENTI PREFABBRICATI</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>🏗️ Caduta di carichi sospesi</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Controllo gru, segnalazioni acustiche</td>
+            </tr>
+            <tr>
+                <td>🦶 Schiacciamento</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td class="editable-element" data-type="text">Coordinamento movimenti, aree interdette</td>
+            </tr>
+        </table>
+        
+        <h4>FASE 8: REALIZZAZIONE IMPIANTI</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>⚡ Elettrocuzione</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Disattivazione linee, verifiche tensione</td>
+            </tr>
+            <tr>
+                <td>🔥 Ustioni</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Guanti termici, raffreddamento metalli</td>
+            </tr>
+        </table>
+        
+        ${generateFooter(20)}
+    `;
+}
+
+function generateRiskAssessment4Page() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">VALUTAZIONE RISCHI - FASE 9</h2>
+        </div>
+        
+        <h4>FASE 9: SMONTAGGIO DEL PONTEGGIO</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>🏗️ Caduta dall'alto</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td class="editable-element" data-type="text">Imbracature, procedure smontaggio graduale</td>
+            </tr>
+            <tr>
+                <td>🏗️ Caduta di materiali dall'alto</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Delimitazione area, casco protezione</td>
+            </tr>
+            <tr>
+                <td>🏗️ Crollo strutture</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Smontaggio secondo schema autorizzato</td>
+            </tr>
+            <tr>
+                <td>🔨 Urti e colpi</td>
+                <td><span class="risk-level risk-alto">ALTA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Casco, coordinamento movimenti</td>
+            </tr>
+            <tr>
+                <td>🦶 Schiacciamento arti</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Calzature S3, guanti protezione</td>
+            </tr>
+        </table>
+        
+        <div style="margin-top: 2rem;">
+            <h4>📋 Note Procedurali Fase 9</h4>
+            <p class="editable-element" data-type="text">Lo smontaggio del ponteggio deve avvenire in sequenza inversa rispetto al montaggio, con particolare attenzione alla stabilità della struttura residua. È obbligatorio l'uso di imbracature di sicurezza per tutti gli operatori impegnati nelle operazioni di smontaggio.</p>
+        </div>
+        
+        ${generateFooter(21)}
+    `;
+}
+
+function generateRiskAssessment5Page() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">VALUTAZIONE RISCHI - FASE 10</h2>
+        </div>
+        
+        <h4>FASE 10: FINITURE</h4>
+        <table class="risk-table">
+            <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th><th>MISURE PREVENTIVE</th></tr>
+            <tr>
+                <td>🧪 Inalazione vapori</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Maschere con filtri, ventilazione ambienti</td>
+            </tr>
+            <tr>
+                <td>👁️ Irritazione agli occhi</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Occhiali protettivi, lavaggio frequente</td>
+            </tr>
+            <tr>
+                <td>🧤 Dermatiti da contatto</td>
+                <td><span class="risk-level risk-medio">MEDIA</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Guanti impermeabili, creme protettive</td>
+            </tr>
+            <tr>
+                <td>🏗️ Caduta in piano</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td><span class="risk-level risk-basso">BASSO</span></td>
+                <td class="editable-element" data-type="text">Pulizia pavimenti, calzature antiscivolo</td>
+            </tr>
+            <tr>
+                <td>🔥 Incendio</td>
+                <td><span class="risk-level risk-basso">BASSA</span></td>
+                <td><span class="risk-level risk-alto">ALTO</span></td>
+                <td><span class="risk-level risk-medio">MEDIO</span></td>
+                <td class="editable-element" data-type="text">Estintori, divieto fumo, ventilazione</td>
+            </tr>
+        </table>
+        
+        <div style="margin-top: 2rem;">
+            <h4>🎨 Lavorazioni di Finitura Specifiche</h4>
+            <ul>
+                <li class="editable-element" data-type="text"><strong>Pitturazione:</strong> Uso di prodotti a bassa emissione, ventilazione forzata</li>
+                <li class="editable-element" data-type="text"><strong>Impermeabilizzazioni:</strong> Controllo temperature applicazione, DPI specifici</li>
+                <li class="editable-element" data-type="text"><strong>Rivestimenti:</strong> Taglio materiali con aspirazione polveri</li>
+                <li class="editable-element" data-type="text"><strong>Serramenti:</strong> Movimentazione con ausili meccanici</li>
+            </ul>
+        </div>
+        
+        ${generateFooter(22)}
+    `;
+}
+
+function generateEquipmentSheetsPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">17. SCHEDE TECNICHE ATTREZZATURE</h2>
+        </div>
+        
+        <div class="equipment-intro">
+            <p class="editable-element" data-type="text">Le seguenti schede tecniche descrivono le principali attrezzature utilizzate nel cantiere, con indicazione dei rischi specifici e delle misure di prevenzione da adottare.</p>
+        </div>
+        
+        <div class="equipment-list">
+            <h4>📋 Indice Attrezzature</h4>
+            <table class="risk-table">
+                <tr><th>ATTREZZATURA</th><th>CODICE</th><th>PAGINA</th><th>PRESENTE</th></tr>
+                <tr>
+                    <td>🔧 Bombola Gas</td>
+                    <td>ATT-001</td>
+                    <td>24</td>
+                    <td><input type="checkbox" checked> SI ☐ NO</td>
+                </tr>
+                <tr>
+                    <td>🏗️ Betoniera</td>
+                    <td>ATT-002</td>
+                    <td>25</td>
+                    <td><input type="checkbox"> SI ☑ NO</td>
+                </tr>
+                <tr>
+                    <td>💨 Compressore</td>
+                    <td>ATT-003</td>
+                    <td>26</td>
+                    <td><input type="checkbox" checked> SI ☐ NO</td>
+                </tr>
+                <tr>
+                    <td>🚜 Escavatore</td>
+                    <td>ATT-004</td>
+                    <td>27</td>
+                    <td><input type="checkbox" checked> SI ☐ NO</td>
+                </tr>
+                <tr>
+                    <td>🏗️ Autogru</td>
+                    <td>ATT-005</td>
+                    <td>28</td>
+                    <td><input type="checkbox"> SI ☑ NO</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div style="margin-top: 2rem;">
+            <h4>⚠️ Avvertenze Generali</h4>
+            <ul>
+                <li class="editable-element" data-type="text">Tutte le attrezzature devono essere utilizzate da personale formato e autorizzato</li>
+                <li class="editable-element" data-type="text">Prima dell'uso verificare sempre l'efficienza dei dispositivi di sicurezza</li>
+                <li class="editable-element" data-type="text">Rispettare scrupolosamente le procedure di manutenzione programmata</li>
+                <li class="editable-element" data-type="text">In caso di anomalie sospendere immediatamente l'utilizzo</li>
+                <li class="editable-element" data-type="text">Tenere sempre a disposizione i manuali d'uso e manutenzione</li>
+            </ul>
+        </div>
+        
+        ${generateFooter(23)}
+    `;
+}
+
+function generateGasCylinderPage() {
+    return `
+        <div class="pos-header">
+            <h2 class="pos-title">SCHEDA ATTREZZATURA - BOMBOLA GAS</h2>
+        </div>
+        
+        <div class="equipment-card">
+            <h4>🔧 BOMBOLA GAS - Codice ATT-001</h4>
+            
+            <div class="checkbox-present">
+                <strong>PRESENTE: ☑ SI ☐ NO</strong>
+            </div>
+            
+            <table class="risk-table">
+                <tr><th>RISCHIO</th><th>PROBABILITÀ</th><th>DANNO</th><th>ENTITÀ</th></tr>
+                <tr>
+                    <td>💥 Esplosione</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>🔥 Incendio</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+                <tr>
+                    <td>🫁 Asfissia</td>
+                    <td><span class="risk-level risk-basso">BASSO</span></td>
+                    <td><span class="risk-level risk-alto">ALTO</span></td>
+                    <td><span class="risk-level risk-medio">MEDIO</span></td>
+                </tr>
+            </table>
+            
+            <h5>🔍 PRIMA DELL'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Verificare l'integrità delle bombole e dei riduttori di pressione</li>
+                <li class="editable-element" data-type="text">Controllare la presenza di eventuali perdite</li>
+                <li class="editable-element" data-type="text">Verificare la stabilità del supporto delle bombole</li>
+                <li class="editable-element" data-type="text">Controllare la funzionalità degli strumenti di misura</li>
+            </ul>
+            
+            <h5>⚡ DURANTE L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Trasportare le bombole con appositi carrelli</li>
+                <li class="editable-element" data-type="text">Non fumare nelle vicinanze delle bombole</li>
+                <li class="editable-element" data-type="text">Tenere le bombole lontane da fonti di calore</li>
+                <li class="editable-element" data-type="text">Non utilizzare fiamme libere per ricercare perdite</li>
+            </ul>
+            
+            <h5>🛡️ DOPO L'USO:</h5>
+            <ul>
+                <li class="editable-element" data-type="text">Chiudere sempre il rubinetto della bombola</li>
+                <li class="editable-element" data-type="text">Riporre le bombole in luogo ventilato</li>
+                <li class="editable-element" data-type="text">Controllare che i tappi di protezione siano montati</li>
+            </ul>
+            
+            <h5>🦺 DPI DI RIFERIMENTO:</h5>
+            <p class="editable-element" data-type="text">Guanti da lavoro, calzature di sicurezza, abbigliamento ignifugo quando necessario</p>
+        </div>
+        
+        ${generateFooter(24)}
+    `;
