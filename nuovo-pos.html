@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuovo POS - Generatore POS</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Generatore POS</h1>
+            <p>Compila i dati per generare il Piano Operativo di Sicurezza</p>
+        </div>
+
+        <div class="main-card">
+            <h2>Nuovo Piano Operativo di Sicurezza</h2>
+            
+            <form id="posDataForm">
+                <!-- COMMITTENTE -->
+                <div class="section">
+                    <h3>COMMITTENTE</h3>
+                    <div class="form-group">
+                        <label>Intestazione cliente:</label>
+                        <input type="text" name="intestazioneCliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Indirizzo cliente:</label>
+                        <input type="text" name="indirizzocliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CAP cliente:</label>
+                        <input type="text" name="capcliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Paese cliente:</label>
+                        <input type="text" name="Paesecliente" required>
+                    </div>
+                    <div class="form-group">
+                        <label>PIVA cliente:</label>
+                        <input type="text" name="pivacliente">
+                    </div>
+                </div>
+
+                <!-- DATI GENERALI DEL CANTIERE -->
+                <div class="section">
+                    <h3>DATI GENERALI DEL CANTIERE</h3>
+                    <div class="form-group">
+                        <label>Paese cantiere:</label>
+                        <input type="text" name="paesecantiere" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Indirizzo cantiere:</label>
+                        <input type="text" name="indirizzocantiere" required>
+                    </div>
+                </div>
+
+                <!-- DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE -->
+                <div class="section">
+                    <h3>DATI IDENTIFICATIVI DELL'IMPRESA ESECUTRICE</h3>
+                    <div class="form-group">
+                        <label>Intestazione impresa:</label>
+                        <input type="text" name="intestazioneImpresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Indirizzo impresa:</label>
+                        <input type="text" name="indirizzoimpresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>CAP impresa:</label>
+                        <input type="text" name="capImpresa" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Paese impresa:</label>
+                        <input type="text" name="PaeseImpresa" required>
+                    </div>
+                </div>
+
+                <!-- DESCRIZIONE DELL'ATTIVITÀ DI CANTIERE -->
+                <div class="section">
+                    <h3>DESCRIZIONE DELL'ATTIVITÀ DI CANTIERE</h3>
+                    <div class="form-group">
+                        <label>Data prevista inizio lavori:</label>
+                        <input type="date" name="datainiziolavori" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Durata prevista lavorazioni (giorni):</label>
+                        <input type="number" name="duratalavori" required>
+                    </div>
+                </div>
+
+                <!-- LAVORAZIONI -->
+                <div class="section">
+                    <h3>LAVORAZIONI</h3>
+                    <div class="lavorazioni-header">
+                        <div>LAVORAZIONE</div>
+                        <div>DURATA (gg)</div>
+                    </div>
+                    <div class="lavorazioni-grid">
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest1" placeholder="Lavorazione 1">
+                            <input type="number" name="duratalav1" placeholder="Giorni">
+                        </div>
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest2" placeholder="Lavorazione 2">
+                            <input type="number" name="duratalav2" placeholder="Giorni">
+                        </div>
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest3" placeholder="Lavorazione 3">
+                            <input type="number" name="duratalav3" placeholder="Giorni">
+                        </div>
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest4" placeholder="Lavorazione 4">
+                            <input type="number" name="duratalav4" placeholder="Giorni">
+                        </div>
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest5" placeholder="Lavorazione 5">
+                            <input type="number" name="duratalav5" placeholder="Giorni">
+                        </div>
+                        <div class="lavorazione-row">
+                            <input type="text" name="prodottotest6" placeholder="Lavorazione 6">
+                            <input type="number" name="duratalav6" placeholder="Giorni">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generate-section">
+                    <button type="button" class="btn-secondary" onclick="window.location.href='index.html'">
+                        ← Indietro
+                    </button>
+                    <button type="submit" class="btn-primary btn-generate">
+                        📄 Genera PDF
+                    </button>
+                </div>
+            </form>
+            
+            <div id="statusMessage"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.40.2/docxtemplater.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pizzip/3.1.4/pizzip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://unpkg.com/docx@7.8.0/build/index.js"></script>
+    <script src="assets/js/nuovo-pos.js"></script>
+</body>
+</html>
